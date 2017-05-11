@@ -1,19 +1,29 @@
 <?php
 
-include("conexion.php");
 
-$nom= $_POST("nombre");
-$desc= $_POST("descripcion");
-$dir= $_POST("direccion");
-$foto= addslashes(file_get_contents($_FILES))
+$nom= $_POST["nombre"];
+$desc= $_POST["descripcion"];
+$foto= addslashes(file_get_contents($_FILES['foto']['tmp_name']));
+$dir= $_POST["direccion"];
+$fecha = date("Y/m/d");
 
-$insertar = "INSERT INTO incidencia (nombre, descripcion, direccion, foto) VALUES ($nom, $desc, $dir, $foto)";
-$resultado = mysql_query($insertar);
+$conexion = mysqli_connect("localhost","root","","incidencias");
+$insertar = "INSERT INTO incidencia (nombre, descripcion, foto, localizacion, fechaSuceso) VALUES ($nom, $desc, $foto, $dir, $fecha)";
+$resultado = mysqli_query($conexion, $insertar);
 
-if(resultado==false){
-	echo '<p>Error al insertar los campos en la tabla.</p>';
+if(resultado){
+	echo "<script language='javascript'>"; 
+	echo "alert('Se ha insertado correctamente.')";
+	echo 'alert("El nombre es '.$nom.'")';
+	echo 'alert("La descripcion es '.$desc.'")';
+	echo 'alert("La direccion es '.$dir.'")';
+	echo 'alert("La foto es '.$foto.'")';
+	echo 'alert("La fecha es '.$fecha.'")';
+	echo "</script>";  
 }else{
-	echo '<p>Los datos se han insertado correctamente.</p>';
+	echo "<script language='javascript'>"; 
+	echo "alert('Ocurrio un error al insertar.')"; 
+	echo "</script>";  
 }
 
 ?>

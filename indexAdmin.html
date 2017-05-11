@@ -200,7 +200,7 @@
                 </div>
                 <!--Formulario registrar incidencia-->
                 <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="insertar.php">
+                    <form class="col s12" action="insertar.php" method="POST">
                         <div class="row">
                             <!--Nombre-->
                             <div class="input-field col s12">
@@ -228,15 +228,16 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-
-            </div>
-            <div class="modal-footer">
+                        <div class="modal-footer">
                 <!--<a href="#!" type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>-->
                 <button class="btn waves-effect waves-light right submit" type="submit" name="action">Añadir <i class="tiny material-icons">send</i></button>
             </div>
+                    </form>
+                </div>
+
+            </div>
+            
         </div>
 
 

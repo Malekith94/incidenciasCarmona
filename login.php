@@ -4,7 +4,7 @@
     $user = $_POST['txtuser'];
     $pass = $_POST['txtpass'];
 
-    $conexion = mysqli_connect("79.148.236.236","dam42","0260flm4448glj","dam42_incidencias");
+    $conexion = mysqli_connect("localhost","root","","incidencias");
     $consulta = "select * from usuario where correo='$user' and pass='$pass'";
     $resultado = mysqli_query($conexion, $consulta);
     $tipo = "select tipo from usuario where correo='".$user."' and pass='".$pass."'";
