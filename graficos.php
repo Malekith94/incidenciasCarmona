@@ -214,13 +214,9 @@ $(function () {
         <div class="navbar-fixed">
 
             <ul id="dropdown1" class="dropdown-content">
-                <li><a href="herramientas.html">Herramientas</a></li>
+                <li><a href="administracion.html">Administración</a></li>
                 <li class="divider"></li>
-                <li><a href="vehiculos.html">Vehiculos</a></li>
-                <li class="divider"></li>
-                <li><a href="profesiones.html">Profesión</a></li>
-                <li class="divider"></li>
-                <li><a href="graficos.html">Gráficos</a></li>
+                <li><a href="graficos.php">Gráficos</a></li>
             </ul>
 
             <ul id="dropdown2" class="dropdown-content">

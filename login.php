@@ -27,9 +27,9 @@
         // Inicias la sesion 
         session_start(); 
         // Muestras el contenido de la pagina 
-        header("location:../indexAdmin.html");
+        header("location:indexAdmin.html");
     }else if ($filas > 0 and $prueba["tipo"] == 1){
-        header("location:../indexEmpleado.html");
+        header("location:indexEmpleado.html");
 		
     }else{
         header("location:login.html");
