@@ -3,7 +3,7 @@ CREATE TABLE empresa(
     nombre varchar(30) NOT NULL,
     direccion varchar(50) NOT NULL,
     telefono varchar(9),
-    logo longblob,
+    logo varchar(200),
     PRIMARY KEY (cif)
 );
 
@@ -17,19 +17,19 @@ CREATE TABLE profesion(
      idHerramienta int(11) NOT NULL,
      nombre varchar(80) NOT NULL,
      cantidad int(11) NOT NULL,
-     foto longblob,
+     foto varchar(200),
      PRIMARY KEY (idHerramienta)
  );
 
  CREATE TABLE usuario(
     dni varchar(9) NOT NULL,
     idProfesion int(11),
-    tipo int(11) NOT NULL,
+    tipo int(11) NOT NULL, /* 0=admin, 1=empleado */
     pass varchar(50) NOT NULL,
     correo varchar(100) NOT NULL,
     nombre varchar(50) NOT NULL,
     apellidos varchar(80) NOT NULL,
-    foto longblob,
+    logo varchar(200),
     telefono varchar(20) NOT NULL,
     direccion varchar(100) NOT NULL,
     fecNac date NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE profesion(
     nombre varchar(100) NOT NULL,
     descripion varchar(150) NOT NULL,
     estado int(1),
-    foto longblob,
+    logo varchar(200),
     prioridad int(1),
     localizacion varchar(200) NOT NULL,
     fechaSuceso date NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE profesion(
     marca varchar(50) NOT NULL,
     modelo varchar(80) NOT NULL,    
     disponibilidad int(1) NOT NULL,
-    foto longblob,
+    logo varchar(200),
     PRIMARY KEY (matricula),
     CONSTRAINT FOREIGN KEY (idProfesion) REFERENCES profesion(idProfesion)
  );

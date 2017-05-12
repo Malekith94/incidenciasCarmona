@@ -26,14 +26,10 @@
     if ($filas > 0 and $prueba["tipo"] == 0) {
         // Inicias la sesion 
         session_start(); 
-        $_SESSION['usuario'] = $resultado['user']; 
-        $_SESSION['tiempo']=time();
-        echo $_SESSION['usuario'];
-        echo $_SESSION['tiempo'];
         // Muestras el contenido de la pagina 
-        header("location:indexAdmin.html");
+        header("location:../indexAdmin.html");
     }else if ($filas > 0 and $prueba["tipo"] == 1){
-        header("location:indexEmpleado.html");
+        header("location:../indexEmpleado.html");
 		
     }else{
         header("location:login.html");

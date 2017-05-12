@@ -1,8 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "incidencias";
+
+include("conexion.php");
 
 $cif = $_POST["cif"];
 $nom = $_POST["nom"];
@@ -12,22 +10,20 @@ $ruta = $_FILES["img"]["tmp_name"];
 $destino = "fotos/".$img;
 copy($ruta, $destino);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 } 
 
 $insertar = "INSERT INTO empresa (cif, nombre, direccion, logo) VALUES ('$cif', '$nom', '$dir', '$img')";
 
-if ($conn->query($insertar)) {
+if ($mysqli->query($insertar)) {
     echo "New record created successfully";
     echo '<p> nombre es: '.$nom.'</p>';
 } else {
-    echo "Error: " . $insertar . "<br>" . $conn->error;
+    echo "Error: " . $insertar . "<br>" . $mysqli->error;
     echo '<p> nombre es: '.$nom.'</p>';
 }
 
-$conn->close();
+$mysqli->close();
 ?>
