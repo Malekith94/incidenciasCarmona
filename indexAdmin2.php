@@ -108,7 +108,7 @@
                             $link = mysql_connect("localhost", "root"); 
                             mysql_select_db("incidencias", $link); 
                             $result = mysql_query("SELECT * FROM inventario", $link); 
-                            echo '<table class="centered responsive-table highlight bordered"> \n'; 
+                            echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
                             echo '<th>idHerramienta</th>';
