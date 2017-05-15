@@ -114,12 +114,12 @@
                             echo '<th>idHerramienta</th>';
                             echo '<th>Nombre</th>';
                             echo '<th>Cantidad</th>';
-                            echo '<th></th>';
+                            echo '<th>Coger</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr> \n"; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
