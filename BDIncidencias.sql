@@ -14,7 +14,7 @@ CREATE TABLE profesion(
  );
 
  CREATE TABLE inventario(
-     idHerramienta int(11) NOT NULL,
+     idHerramienta int(11) NOT NULL AUTO_INCREMENT,
      nombre varchar(80) NOT NULL,
      cantidad int(11) NOT NULL,
      foto varchar(200),
@@ -26,7 +26,7 @@ CREATE TABLE profesion(
     idProfesion int(11),
     tipo int(11) NOT NULL, /* 0=admin, 1=empleado */
     pass varchar(50) NOT NULL,
-    correo varchar(100) NOT NULL,
+    correo varchar(100) NOT NULL UNIQUE,
     nombre varchar(50) NOT NULL,
     apellidos varchar(80) NOT NULL,
     logo varchar(200),

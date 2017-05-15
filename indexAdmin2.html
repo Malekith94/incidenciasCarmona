@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+
+//Creando conexion
+$conexion=mysql_connect("localhost","root","") or die("Problemas en la conexion");
+//seleccionando base
+mysql_select_db("incidencias",$conexion) or die("Problemas en la selección de la base de datos");
+mysql_query ("SET NAMES 'utf8'");
+//seleccionando datos de la base de datos 
+$datos=mysql_query("select * from inventario",$conexion) or
+die("Problema seleccionando datos:".mysql_error());
+
+?>
 <html>
 
 <head>
@@ -97,10 +109,94 @@
 
 
         </div>
+        
+    <div>
+        <?php if ($datos) {   ?>
+        <table border="1px">
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>cantidad</th>
+                
+            </tr>
+            <?php  while ($registro=mysql_fetch_assoc($datos)) {?>
+            <tr>
+                <td>
+                    <?php echo $registro['idHerramienta'];?>
+                </td>
+                <td>
+                    <?php echo $registro['nombre']; ?>
+                </td>
+                <td>
+                    <?php echo $registro['cantida']; ?>
+                </td>
+            </tr>
+            <?php }?>
+        </table>
+        <?php   } else{?>
+        <p>No hay contactos en la agenda</p>
+        <?php } ?>
+    </div>
 
         <!--Ventana modal float button rellenar incidencia-->
         
+        <div class="white contenedorTabla">                                    
+                    <table class="centered responsive-table highlight bordered">
+                        <thead>
+                            <tr>
+                                <th>idHerramienta</th>
+                                <th>Nombre</th>
+                                <th></th>
+                            </tr>
+                        </thead>
 
+                        <tbody>
+                           <?php
+                           $con = mysqli_connect("localhost","root","","incidencias");
+                           $query = "SELECT * FROM inventario";
+                           $resultado = mysqli_query($con, $query);
+
+                           while($fila = mysql_fetch_assoc($resultado)){
+                            echo '<tr>';
+                                echo '<td>$fila['idHerrramienta']</td>';
+                                echo '<td>$fila['nombre']</td>';
+                                echo '<td>';
+                                echo '<p>';
+                                        echo '<input type="checkbox" id="test1"/>';
+                                        echo '<label for="test1">Confirmar</label>';
+                                    echo '</p>';
+                                echo '</td>';
+                            echo '</tr>';
+                            }
+                            ?>
+                            <!--
+                            <tr>
+                                <td>Alan</td>
+                                <td>Jellybean</td>
+                                <td>
+                                    <p>
+                                        <input type="checkbox" id="test2"/>
+                                        <label for="test2">Confirmar</label>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jonathan</td>
+                                <td>Lollipop</td>
+                                <td>
+                                    <p>
+                                        <input type="checkbox" id="test3"/>
+                                        <label for="test3">Confirmar</label>
+                                    </p>
+                                </td>
+                            </tr>
+                            -->
+                        </tbody>
+                    </table>               
+                    <a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>
+
+                </div>
+        
 
         <!--Footer-->
         <footer class="page-footer yellow accent-2">
