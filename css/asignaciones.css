@@ -55,6 +55,7 @@ div.incidencias{
     margin:0 auto;
     position: relative; 
     min-height: 525px;
+    margin-bottom: 200px;
 }
 
 .contenedorTabla{
@@ -64,4 +65,8 @@ div.incidencias{
     border: 0px solid #000000;
     width: 700px;
     margin: auto;
+}
+
+.bloqueAsignacion{
+    margin-top: 150px;
 }
