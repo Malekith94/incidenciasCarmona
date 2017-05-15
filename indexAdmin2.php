@@ -88,7 +88,7 @@
               <input type="text" name="nom" value="nombre">
               <input type="text" name="dir" value="direc">
               <input type="file" name="img" value="imagen">
-              <input type="submit" value="enviar perra">
+              <input type="submit" value="enviar">
             </form>
         </div>
 
@@ -99,40 +99,46 @@
 
         </div>
         
-    <div>
-        <?php 
-$link = mysql_connect("localhost", "root"); 
-mysql_select_db("incidencias", $link); 
-$result = mysql_query("SELECT * FROM inventario", $link); 
-if ($row = mysql_fetch_array($result)){ 
-   echo "<table border = '1'> \n"; 
-   echo "<tr><td>Nombre</td><td>E-Mail</td></tr> \n"; 
-   do { 
-      echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[3]."</td></tr> \n"; 
-   } while ($row = mysql_fetch_array($result)); 
-   echo "</table> \n"; 
-} else { 
-echo "¡ No se ha encontrado ningún registro !"; 
-} 
-?> 
-  
-    </div>
 
         <!--Ventana modal float button rellenar incidencia-->
         
-        <div class="white contenedorTabla">                                    
+        <div class="white contenedorTabla">  
+            
+            <?php 
+                            $link = mysql_connect("localhost", "root"); 
+                            mysql_select_db("incidencias", $link); 
+                            $result = mysql_query("SELECT * FROM inventario", $link); 
+                            echo '<table class="centered responsive-table highlight bordered"> \n'; 
+                            echo '<thead>';
+                            echo '<tr>';
+                            echo '<th>idHerramienta</th>';
+                            echo '<th>Nombre</th>';
+                            echo '<th>Cantidad</th>';
+                            echo '<th></th>';
+                            echo '</tr>';
+                            echo '</thead>';
+                            echo '<tbody>';
+                            while ($row = mysql_fetch_row($result)){ 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr> \n"; 
+                            } 
+                            echo "</table> \n"; 
+                            echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
+                            ?> 
+
+            <!--
                     <table class="centered responsive-table highlight bordered">
                         <thead>
                             <tr>
                                 <th>idHerramienta</th>
                                 <th>Nombre</th>
+                                <th>Cantidad</th>
                                 <th></th>
                             </tr>
                         </thead>
 
                         <tbody>
-                         
-                         
+                            
+                            
                             <tr>
                                 <td>Alan</td>
                                 <td>Jellybean</td>
@@ -157,6 +163,7 @@ echo "¡ No se ha encontrado ningún registro !";
                         </tbody>
                     </table>               
                     <a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>
+                    -->
 
                 </div>
         
