@@ -42,7 +42,7 @@ CREATE TABLE profesion(
     idIncidencia int(11) NOT NULL AUTO_INCREMENT,
     dni varchar(9),
     nombre varchar(100) NOT NULL,
-    descripion varchar(150) NOT NULL,
+    descripcion varchar(150) NOT NULL,
     estado int(1),
     logo varchar(200),
     prioridad int(1),

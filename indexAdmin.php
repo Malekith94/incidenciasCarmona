@@ -12,7 +12,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body>
+<body class="black">
     <div class="contenido">
 
         <div class="navbar-fixed">
@@ -106,7 +106,7 @@
                 </div>
                 <!--Formulario registrar incidencia-->
                 <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="insertar.php" method="POST">
+                    <form class="col s12" action="insertar.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <!--Nombre-->
                             <div class="input-field col s12">
