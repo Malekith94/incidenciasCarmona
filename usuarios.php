@@ -71,15 +71,15 @@
 		<ul class="collapsible popout" data-collapsible="accordion">
 			<li>
 				<div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
 			</li>
 			<li>
 				<div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
 			</li>
 			<li>
 				<div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
 			</li>
 		</ul>
 		</div>
@@ -90,15 +90,15 @@
 		<ul class="collapsible popout" data-collapsible="accordion">
 			<li>
 				<div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
 			</li>
 			<li>
 				<div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
 			</li>
 			<li>
 				<div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
 			</li>
 		</ul>
 		</div>
@@ -109,15 +109,16 @@
 		<ul class="collapsible popout" data-collapsible="accordion">
 			<li>
 				<div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span> <a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a>
+                </div>
 			</li>
 			<li>
 				<div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
 			</li>
 			<li>
 				<div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span></div>
+				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
 			</li>
 		</ul>
 		</div>
