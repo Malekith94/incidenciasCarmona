@@ -50,3 +50,32 @@ div.incidencias{
     min-height: 525px;
 }
 
+.prueba {
+    background-color: white; 
+}
+
+h3 {
+    text-align: center;
+    color: yellow;
+    font-weight: bold;
+}
+
+.espacio {
+    margin-top: 50px;
+}
+
+.espacioabajo{
+    margin-bottom: 50px;
+}
+
+#floating {
+    text-align: right;
+}
+
+.titulomodal{
+    text-align: right;
+}
+
+.iconomodal{
+    margin-left: 280px;
+}
