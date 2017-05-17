@@ -187,7 +187,11 @@
             </div>
         </div>
         
-       <!--Footer-->
+       
+        
+    </div>
+
+    <!--Footer-->
         <footer class="page-footer yellow accent-2">
             <div class="container">
                 <div class="row">
@@ -211,8 +215,6 @@
                 </div>
             </div>
         </footer>
-        
-    </div>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/asignaciones.js"></script>

@@ -280,7 +280,11 @@ $(function () {
             </div>
         </div>
 
-        <!--Footer-->
+       
+        
+    </div>
+
+     <!--Footer-->
     <footer class="page-footer yellow accent-2">
         <div class="container">
             <div class="row">
@@ -304,8 +308,6 @@ $(function () {
             </div>
         </div>
     </footer>
-        
-    </div>
         <!-- jQuery -->
      
     <script src="js/materialize.min.js"></script>

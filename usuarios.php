@@ -64,8 +64,12 @@
         </ul>
 
         <div class="container incidencias">
+			
+			
+       
+    	</div>
 
-        <!--Footer-->
+     <!--Footer-->
         <footer class="page-footer yellow accent-2">
             <div class="container">
                 <div class="row">
@@ -89,7 +93,6 @@
                 </div>
             </div>
         </footer>
-    </div>
 
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/materialize.min.js"></script>
