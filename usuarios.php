@@ -7,15 +7,16 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="css/materialize.min.css">
 
-    <link rel="stylesheet" href="css/indexAdmin.css">
+    <link rel="stylesheet" href="css/usuarios.css">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body class="black">
-    <div class="contenido">
+	
 
-        <div class="navbar-fixed">
+
+<div class="navbar-fixed">
 
             <ul id="dropdown1" class="dropdown-content">
                 <li><a href="administracion.html">Administracion</a></li>
@@ -62,91 +63,7 @@
             <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
 
-        <!-- div incidencias (acaba justo despues del footer) -->
         <div class="container incidencias">
-
-            <div class="row">
-
-                <h2>Incidencias</h2>
-
-            </div>
-            <!-- colecciones -->            
-            
-            <?php
-                $link = mysql_connect("localhost", "root");
-            mysql_select_db("incidencias", $link);
-            $result = mysql_query("SELECT * FROM incidencia", $link);
-            
-            echo '<ul class="collection">';
-            
-            while ($row = mysql_fetch_row($result)){
-                echo '<li class="collection-item avatar">';
-                echo '<i class="material-icons circle green">insert_chart</i>';
-                echo "<span class='title'>$row[2]</span>";
-                echo "<p>$row[3]</p>";
-                echo '<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>';
-            }
-            echo '</ul>';
-            ?>
-
-        </div>
-
-
-        <div id="floating" class="fixed-action-btn">
-            <a class="btn-floating btn-large waves-effect waves-light red" href="#modal1"><i class="material-icons">add</i></a>
-
-
-        </div>
-
-        <!--Ventana modal float button rellenar incidencia-->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <div class="container row center-align">
-                    <i class="large material-icons">report_problem</i>
-                    <h4 align="center">Registrar Incidencia</h4>
-                </div>
-                <!--Formulario registrar incidencia-->
-                <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="insertar.php" method="POST" enctype="multipart/form-data">
-                        <div class="row">
-                            <!--Nombre-->
-                            <div class="input-field col s12">
-                                <input id="labelNombre" name="nombre" type="text" class="validate">
-                                <label for="labelNombre">Incidencia</label>
-                            </div>
-                            <!--Descripcion-->
-                            <div class="input-field col s12">
-                                <textarea id="txtAreaDescripcion" name="descripcion" class="materialize-textarea"></textarea>
-                                <label for="txtAreaDescripcion">Descripcion de la Incidencia</label>
-                            </div>
-                            <!--Direccion -->
-                            <div class="input-field col s12">
-                                <input id="labelDireccion" name="direccion" type="text" class="validate">
-                                <label for="labelDireccion">Direccion</label>
-                            </div>
-                            <!--Imagen-->
-                            <div class="file-field input-field col s12">
-                                <div class="btn">
-                                    <span>Foto</span>
-                                    <input type="file" name="foto" multiple>
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Seleccione la imagen">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <!--<a href="#!" type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>-->
-                            <button class="btn waves-effect waves-light right submit" type="submit" name="action">Añadir <i class="tiny material-icons">send</i></button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-        </div>
-
 
         <!--Footer-->
         <footer class="page-footer yellow accent-2">
@@ -172,11 +89,12 @@
                 </div>
             </div>
         </footer>
-
     </div>
+
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/indexAdmin.js"></script>
+
 
 </body>
 
