@@ -72,7 +72,7 @@
 
                                     <!--Dni-->
                                     <div class="input-field col s6">
-                                        <input disabled value="I am not editable" id="labelDni" name="dni" type="text" class="validate">
+                                        <input id="labelDni" name="dni" type="text" class="validate">
                                         <label for="labelDni">Dni</label>
                                     </div>
 
@@ -84,36 +84,43 @@
 
                                 </div>
                                 <div class="row ">
+                                   <!--Correo-->
                                     <div class="input-field col s6">
                                         <input id="correo" name="correo" type="text" class="validate">
                                         <label for="correo">Correo</label>
                                     </div>
+                                    <!--Contraseña-->
                                     <div class="input-field col s6">
                                         <input id="password" name="pass" type="password" class="validate">
                                         <label for="password">Contraseña</label>
                                     </div>
                                 </div>
                                 <div class="row ">
+                                   <!--Nombre-->
                                     <div class="input-field col s6">
                                         <input id="nombre" name="nombre" type="text" class="validate">
                                         <label for="nombre">Nombre</label>
                                     </div>
+                                    <!--Apellidos-->
                                     <div class="input-field col s6">
                                         <input id="apellidos" name="apellidos" type="text" class="validate">
                                         <label for="apellidos">Apellidos</label>
                                     </div>
                                 </div>
                                 <div class="row ">
+                                   <!--Telefono-->
                                     <div class="input-field col s6">
                                         <input id="telefono" name="telefono" type="text" class="validate">
                                         <label for="telefono">Telefono</label>
                                     </div>
+                                    <!--Direccion-->
                                     <div class="input-field col s6">
                                         <input id="direccion" name="direccion" type="text" class="validate">
                                         <label for="direccion">Direccion</label>
                                     </div>
                                 </div>
                                 <div class="row ">
+                                   <!--Foto-->
                                     <div class="file-field input-field col s12">
                                         <div class="btn">
                                             <span>Foto</span>
@@ -128,7 +135,7 @@
                                     <div class="modal-footer">
                                         <!--<a href="#!" type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>-->
-                                        <button class="btn waves-effect waves-light right submit" type="submit" name="action">Confirmar <i class="tiny material-icons">send</i></button>
+                                        <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
                                     </div>
                                 </div>
                             </form>
