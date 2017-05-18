@@ -136,7 +136,7 @@
                     <h4 class="titulomodal">Registrar usuario</h4>
                 </div>
                 <!--Formulario registrar usuario-->
-                <div id="nuevaIncidencia" class="row">
+                <div id="nuevoUsuario" class="row">
                     <form class="col s12" action="insertarUsuario.php" method="POST" enctype="multipart/form-data">
                        
                         <div class="row">
@@ -172,6 +172,7 @@
                                     while($row = mysql_fetch_array($query))
                                     {
                                     echo'<OPTION VALUE="'.$row['idProfesion'].'">'.$row['nombre'].'</OPTION>';
+                                        echo $row['idProfesion'];
                                     }
                                 ?>
 						    	</select>

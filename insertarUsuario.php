@@ -23,10 +23,11 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 } 
 
-$insertar = "INSERT INTO usuario (dni, tipo, pass, correo, nombre, apellidos, logo, telefono, direccion, fecNac, sexo) VALUES ('$dni', '$tipo', '$contraseña', '$email', '$nom', '$ape', '$destino', '$tel', '$dir', '$fec', '$sexo')";
+$insertar = "INSERT INTO usuario (dni, idProfesion, tipo, pass, correo, nombre, apellidos, logo, telefono, direccion, fecNac, sexo) VALUES ('$dni', '$profesion', '$tipo', '$contraseña', '$email', '$nom', '$ape', '$destino', '$tel', '$dir', '$fec', '$sexo')";
 
 if ($mysqli->query($insertar)) {
-    echo '<script language="javascript"> alert("Se ha insertado el usuario correctamente"); setTimeout("location.href="usuarios.php", 5000) </script>';
+    echo '<html><body><script language="javascript"> alert("Se ha insertado el usuario correctamente"); window.location="usuarios.php"; </script> </body></html>';
+    //header('Location: usuarios.php');
 	
     //echo "New record created successfully";
     //echo '<p> nombre es: '.$nom.'</p>';

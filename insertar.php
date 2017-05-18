@@ -19,7 +19,7 @@ if ($mysqli->connect_error) {
 $insertar = "INSERT INTO incidencia (nombre, descripcion, localizacion, logo) VALUES ('$nom', '$desc', '$dir', '$destino')";
 
 if ($mysqli->query($insertar)) {
-    echo '<script language="javascript"> alert("Se ha publicado la incidencia correctamente"); window.location("indexAdmin.php"); </script>';
+    echo '<script language="javascript"> alert("Se ha publicado la incidencia correctamente"); window.location="indexAdmin.php"; </script>';
     //header('location: indexAdmin.php');
 	
     //echo "New record created successfully";
