@@ -137,7 +137,7 @@
                 </div>
                 <!--Formulario registrar usuario-->
                 <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="insertar.php" method="POST" enctype="multipart/form-data">
+                    <form class="col s12" action="insertarUsuario.php" method="POST" enctype="multipart/form-data">
                        
                         <div class="row">
 
@@ -159,20 +159,30 @@
 
                             <!--Profesion-->
                             <div class="input-field col s6">
-						    	<select id="combo">
-						      		<option value="" disabled selected>Elige la profesion</option>
-								    <option value="1">Electricista</option>
-								    <option value="2">Jardinero</option>
-								    <option value="3">Fontanero</option>
+						    	<select id="combo" name="profesiones">
+                                <option>Seleccione una profesión...</option>
+						      	<?php 
+                                    $conexion=mysql_connect("localhost","root","") or
+                                    die("Problemas en la conexion");
+                                    mysql_select_db("incidencias",$conexion) or
+                                    die("Problemas en la selección de la base de datos");  
+                                    mysql_query ("SET NAMES 'utf8'");
+                                    $query=mysql_query("select idProfesion, nombre from profesion", $conexion) or
+                                    die("Problemas en el select:".mysql_error());
+                                    while($row = mysql_fetch_array($query))
+                                    {
+                                    echo'<OPTION VALUE="'.$row['idProfesion'].'">'.$row['nombre'].'</OPTION>';
+                                    }
+                                ?>
 						    	</select>
-						   		<label for="combo">Profesión</label>
+						   		
 						 	</div>
 
                             <!--Tipo -->
                             <div class="input-field col s6">
-							      <input name="tipos" type="radio" id="administrador" />
+							      <input name="tipos" type="radio" id="administrador" value="0" />
 							      <label for="administrador">Administrador</label>
-							      <input name="tipos" type="radio" id="empleado" />
+							      <input name="tipos" type="radio" id="empleado" value="1" />
 							      <label for="empleado">Empleado</label>
                             </div>
 
@@ -192,13 +202,13 @@
 
 
                             <!--Nombre-->
-                            <div class="input-field col s12">
+                            <div class="input-field col s6">
                                 <input id="labelNombre" name="nombre" type="text" data-length="50" class="validate">
                                 <label for="labelNombre">Nombre</label>
                             </div>
 
                             <!--Apellidos-->
-                            <div class="input-field col s12">
+                            <div class="input-field col s6">
                                 <input id="labelApellidos" name="apellidos" type="text" data-length="80" class="validate">
                                 <label for="labelApellidos">Apellidos</label>
                             </div>
@@ -212,16 +222,22 @@
                             
                              <!--Sexo-->
                             <div id="sexodiv" class="input-field col s5">
-                                  <input name="sexo" type="radio" id="masculino" />
-                                  <label for="masculino">Masculino</label>
-                                  <input name="sexo" type="radio" id="femenino" />
+                                  <input name="sexo" type="radio" id="masculino" value="masculino" />
+                                  <label for="masculino" name>Masculino</label>
+                                  <input name="sexo" type="radio" id="femenino" value="femenino" />
                                   <label for="femenino">Femenino</label>
+                            </div>
+
+                             <!--Telefono-->
+                            <div id="tel" class="input-field col s7">
+                                <input id="labelTelefono" name="telefono" type="text" data-length="9" class="validate">
+                                <label for="labelTelefono">Telefono</label>
                             </div>
                             
                             
                             <!--Imagen-->
                             
-                            <div class="file-field input-field col s7">
+                            <div class="file-field input-field col s12">
                                 <div class="btn">
                                     <span>Foto</span>
                                     <input type="file" name="foto" multiple>
