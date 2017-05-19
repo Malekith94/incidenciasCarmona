@@ -73,7 +73,7 @@
             <!-- colecciones -->            
             
             <?php
-                $link = mysql_connect("localhost", "root");
+            $link = mysql_connect("localhost", "root");
             mysql_select_db("incidencias", $link);
             $result = mysql_query("SELECT * FROM incidencia", $link);
             

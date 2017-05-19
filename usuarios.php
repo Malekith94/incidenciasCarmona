@@ -68,59 +68,59 @@
 		<div class="espacio">
 
 			<h3>Administradores</h3>
-		<ul class="collapsible popout" data-collapsible="accordion">
-			<li>
-				<div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
-			</li>
-			<li>
-				<div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
-			</li>
-			<li>
-				<div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
-			</li>
-		</ul>
+            <?php
+             $link = mysql_connect("localhost", "root");
+            mysql_select_db("incidencias", $link);
+            $result = mysql_query("SELECT * FROM usuario WHERE tipo=0", $link);
+
+		    echo '<ul class="collapsible popout" data-collapsible="accordion">';
+            while ($row = mysql_fetch_row($result)){
+			echo '<li>';
+				echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]</div>";
+				echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br><a href='#!' class='secondary-content'><i class='material-icons'>mode edit</i><i class='material-icons'>delete</i></a></div>";
+			echo '</li>';
+			}
+		echo '</ul>';
+        ?>
 		</div>
 
 		<div class="espacio">
 
 			<h3>Empleados</h3>
-		<ul class="collapsible popout" data-collapsible="accordion">
-			<li>
-				<div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
-			</li>
-			<li>
-				<div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
-			</li>
-			<li>
-				<div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
-			</li>
-		</ul>
+
+            <?php
+             $link = mysql_connect("localhost", "root");
+            mysql_select_db("incidencias", $link);
+            $result = mysql_query("SELECT * FROM usuario WHERE tipo=1", $link);
+
+		 echo '<ul class="collapsible popout" data-collapsible="accordion">';
+            while ($row = mysql_fetch_row($result)){
+            echo '<li>';
+                echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]</div>";
+                echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br><a href='#!' class='secondary-content'><i class='material-icons'>mode edit</i><i class='material-icons'>delete</i></a></div>";
+            echo '</li>';
+            }
+        echo '</ul>';
+        ?>
 		</div>
 
 		<div class="espacio espacioabajo">
 
 			<h3>Ciudadanos</h3>
-		<ul class="collapsible popout" data-collapsible="accordion">
-			<li>
-				<div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span> <a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a>
-                </div>
-			</li>
-			<li>
-				<div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
-			</li>
-			<li>
-				<div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-				<div class="collapsible-body prueba"><span>Lorem ipsum dolor sit amet.</span><a href="#!" class="secondary-content"><i class="material-icons">mode edit</i><i class="material-icons">delete</i></a></div>
-			</li>
-		</ul>
+		 <?php
+             $link = mysql_connect("localhost", "root");
+            mysql_select_db("incidencias", $link);
+            $result = mysql_query("SELECT * FROM usuario WHERE tipo=2", $link);
+
+         echo '<ul class="collapsible popout" data-collapsible="accordion">';
+            while ($row = mysql_fetch_row($result)){
+            echo '<li>';
+                echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]</div>";
+                echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br><a href='#!' class='secondary-content'><i class='material-icons'>mode edit</i><i class='material-icons'>delete</i></a></div>";
+            echo '</li>';
+            }
+        echo '</ul>';
+        ?>
 		</div>
 
 		<div id="floating" class="fixed-action-btn">
