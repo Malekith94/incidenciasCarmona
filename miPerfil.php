@@ -71,11 +71,11 @@
                             <?php
                                     $link = mysql_connect("localhost", "root");
                                     mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM usuario where dni = '00000000b'", $link);
+                                    $result = mysql_query("SELECT * FROM usuario where dni = '28815279M'", $link);
                                     $row = mysql_fetch_row($result);
                             ?>
                                 <!--Formulario-->
-                                <form class="col s12" method="post" action="modificarMiPerfil.php"  enctype="multipart/form-data">
+                                <form class="col s12" method="post" action="php/modificarMiPerfil.php"  enctype="multipart/form-data">
                                     <div class="row espacio">
                                         <!--Dni-->
                                         <div class="input-field col s6">
@@ -134,7 +134,7 @@
                                                 <input type="file" name="foto" multiple>
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Seleccione su imagen de perfil">
+                                                <input class="file-path validate" type="text" placeholder="<?php echo $row[7]; ?>">
                                             </div>
                                         </div>
                                     </div>
