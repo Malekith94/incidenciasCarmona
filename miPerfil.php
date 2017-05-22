@@ -71,7 +71,7 @@
                             <?php
                                     $link = mysql_connect("localhost", "root");
                                     mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM usuario where dni = '28815279M'", $link);
+                                    $result = mysql_query("SELECT * FROM usuario where correo = '$correoSesion'", $link);
                                     $row = mysql_fetch_row($result);
                             ?>
                                 <!--Formulario-->

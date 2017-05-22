@@ -70,8 +70,8 @@
                 <h2>Incidencias</h2>
 
             </div>
-            <!-- colecciones -->            
-            
+            <!-- colecciones -->
+
             <?php
             $link = mysql_connect("localhost", "root");
             mysql_select_db("incidencias", $link);
@@ -148,34 +148,34 @@
         </div>
 
 
-        
+
 
     </div>
 
     <!--Footer-->
-        <footer class="page-footer yellow accent-2">
+    <footer class="page-footer yellow accent-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="black-text">Sobre nosotros</h5>
+                    <p class="grey-text black-text">Somos una empresa que se encarga de: <br> - Mantenimiento de infraestructuras urbanas. - Limpieza viaria. - Recogida y eliminación de Sólidos Urbanos. - Limpieza y mantenimiento de Edificios Públicos. - Mantenimiento de Parques y Jardines. - Mantenimiento del Alumbrado Público. - Puntos limpios. - Recogida selectiva (vidrio,</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="black-text">Enlaces de interes</h5>
+                    <ul>
+                        <li><a class="blue-text" href="http://www.carmona.org/limancar/limancar.htm">Contacto</a></li>
+                        <li><a class="blue-text" href="http://www.carmona.org/limancar/limancar.htm">Twitter Limancar</a></li>
+                        <li><a class="blue-text" href="http://www.carmona.org/">Ayto.Carmona</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
             <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="black-text">Sobre nosotros</h5>
-                            <p class="grey-text black-text">Somos una empresa que se encarga de: <br> - Mantenimiento de infraestructuras urbanas. - Limpieza viaria. - Recogida y eliminación de Sólidos Urbanos. - Limpieza y mantenimiento de Edificios Públicos. - Mantenimiento de Parques y Jardines. - Mantenimiento del Alumbrado Público. - Puntos limpios. - Recogida selectiva (vidrio,</p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="black-text">Enlaces de interes</h5>
-                        <ul>
-                            <li><a class="blue-text" href="http://www.carmona.org/limancar/limancar.htm">Contacto</a></li>
-                            <li><a class="blue-text" href="http://www.carmona.org/limancar/limancar.htm">Twitter Limancar</a></li>
-                            <li><a class="blue-text" href="http://www.carmona.org/">Ayto.Carmona</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />Este obra está bajo una</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional</a>
             </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />Este obra está bajo una</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional</a>
-                </div>
-            </div>
-        </footer>
+        </div>
+    </footer>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/indexAdmin.js"></script>
