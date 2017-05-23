@@ -324,10 +324,14 @@
 
                             <!--Tipo -->
                             <div class="input-field col s6">
-                                <input name="tipos" type="radio" id="administrador" value="0" />
-                                <label for="administrador">Administrador</label>
-                                <input name="tipos" type="radio" id="empleado" value="1" />
-                                <label for="empleado">Empleado</label>
+                            <?php
+                            if($row[2] == 0){
+                                echo'<input name="tipos" type="radio" id="administrador" value="0" selected />';
+                                echo '<label for="administrador">Administrador</label>';
+                            }else
+                                echo '<input name="tipos" type="radio" id="empleado" value="1" selected/>';
+                                echo '<label for="empleado">Empleado</label>';
+                            ?>
                             </div>
 
                         </div>
@@ -366,10 +370,17 @@
 
                         <!--Sexo-->
                         <div id="sexodiv" class="input-field col s5">
-                            <input name="sexo" type="radio" id="masculino" value="masculino" />
-                            <label for="masculino" name>Masculino</label>
-                            <input name="sexo" type="radio" id="femenino" value="femenino" />
-                            <label for="femenino">Femenino</label>
+
+                            <?php
+                            if($row[10]=='masculino'){
+                            echo'<input name="sexo" type="radio" id="masculino" value="masculino" selected />';
+                            echo'<label for="masculino" name>Masculino</label>';
+                            else{
+                            echo'<input name="sexo" type="radio" id="femenino" value="femenino" selected/>';
+                            echo '<label for="femenino">Femenino</label>';
+                            }
+                            ?>
+                            
                         </div>
 
                         <!--Telefono-->
