@@ -229,9 +229,10 @@
                     
                         <div class="row">
 
+
                             <!--Matricula-->
-                            <div class="input-field col s12">
-                                <input id="labelMatricula" type="text" name="matricula" class="validate">
+                            <div class="input-field col s6">
+                                <input id="labelMatricula" type="text" name="matricula" data-length="7" class="validate" placeholder="Ej: 4455GLF">
                                 <label for="labelMatricula">Matricula</label>
                             </div>
 
@@ -256,27 +257,33 @@
                                 </select>
 
                             </div>
-
+                        </div>
+                            
+                        <div class="row">
                             <!--Marca-->
                             <div class="input-field col s6">
-                                <input id="labelMarca" type="text" name="marca" class="validate"></textarea>
+                                <input id="labelMarca" type="text" name="marca" data-length="20" class="validate"></textarea>
                                 <label for="labelMarca">Marca</label>
                             </div>
 
+
                             <!--Modelo-->
                             <div class="input-field col s6">
-                                <input id="labelModelo" type="text" name="modelo" class="validate"></textarea>
+                                <input id="labelModelo" type="text" name="modelo" data-length="50" class="validate"></textarea>
                                 <label for="labelModelo">Modelo</label>
                             </div>
+                        </div>
+
+                        <div class="row">
 
                             <!--Cantidad-->
-                            <div class="input-field col s12">
-                                <input id="labelCantidad" type="text" name="cantidad" class="validate"></textarea>
+                            <div class="input-field col s6">
+                                <input id="labelCantidad" type="text" name="cantidad" data-length="2" class="validate"></textarea>
                                 <label for="labelCantidad">Cantidad</label>
                             </div>
                            
                             <!--Imagen-->
-                            <div class="file-field input-field col s12">
+                            <div class="file-field input-field col s6">
                                 <div class="btn">
                                     <span>Foto</span>
                                     <input type="file" name="foto" multiple>
@@ -286,6 +293,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </form>
                 </div>
 
@@ -318,7 +326,7 @@
 
             </div>
             <div class="modal-footer">
-                <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
+                <button class="waves-effect waves-light btn right" type="submit" name="action324"><i class="material-icons right">send</i>confirmar</button>
             </div>
         </div>
 
@@ -353,7 +361,7 @@
         </footer>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/administracion.js"></script>
+    <script type="text/javascript" src="js/indexAdmin.js"></script>
 
 </body>
 

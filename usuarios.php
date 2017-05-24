@@ -19,13 +19,13 @@
     <div class="navbar-fixed">
 
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="administracion.html">Administracion</a></li>
+            <li><a href="administracion.php">Administracion</a></li>
             <li class="divider"></li>
             <li><a href="graficos.php">Gráficos</a></li>
         </ul>
 
         <ul id="dropdown2" class="dropdown-content">
-            <li><a href="administracion.html">Administracion</a></li>
+            <li><a href="administracion.php">Administracion</a></li>
             <li><a href="graficos.php">Gráficos</a></li>
         </ul>
 
