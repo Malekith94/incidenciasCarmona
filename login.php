@@ -25,9 +25,9 @@
 
     if ($filas > 0 and $prueba["tipo"] == 0) {
         // Inicias la sesion 
-        session_start(); 
+        //session_start(); 
         // Muestras el contenido de la pagina 
-        header("location:indexAdmin.html");
+        header("location:indexAdmin.php");
     }else if ($filas > 0 and $prueba["tipo"] == 1){
         header("location:indexEmpleado.html");
 		
