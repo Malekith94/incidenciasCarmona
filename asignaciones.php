@@ -65,12 +65,13 @@
                             echo '<th>idHerramienta</th>';
                             echo '<th>Nombre</th>';
                             echo '<th>Cantidad</th>';
+                            echo '<th>Foto</th>';
                             echo '<th>Coger</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='$row[3]' width='35px' height='35px'></img><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
@@ -86,105 +87,33 @@
                 </div>
             
                 <div class="white contenedorTabla">                                    
-                    <table class="centered responsive-table highlight bordered">
-                        <thead>
-                            <tr>
-                                <th>idHerramienta</th>
-                                <th>Nombre</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Alvin</td>
-                                <td>Eclair</td>
-                                <td>
-                                    <p>
-                                        <input type="checkbox" id="test1"/>
-                                        <label for="test1">Confirmar</label>
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Alan</td>
-                                <td>Jellybean</td>
-                                <td>
-                                    <p>
-                                        <input type="checkbox" id="test2"/>
-                                        <label for="test2">Confirmar</label>
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jonathan</td>
-                                <td>Lollipop</td>
-                                <td>
-                                    <p>
-                                        <input type="checkbox" id="test3"/>
-                                        <label for="test3">Confirmar</label>
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>               
-                    <a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>
+                   <?php 
+                            $link = mysql_connect("localhost", "root"); 
+                            mysql_select_db("incidencias", $link); 
+                            $result = mysql_query("SELECT * FROM vehiculo", $link); 
+                            echo '<table class="centered responsive-table highlight bordered">'; 
+                            echo '<thead>';
+                            echo '<tr>';
+                            echo '<th>Matrícula</th>';
+                            echo '<th>idProfesion</th>';
+                            echo '<th>Marca</th>';
+                            echo '<th>Modelo</th>';
+                            echo '<th>Cantidad</th>';
+                            echo '<th>Foto</th>';
+                            echo '<th>Coger</th>';
+                            echo '</tr>';
+                            echo '</thead>';
+                            echo '<tbody>';
+                            while ($row = mysql_fetch_row($result)){ 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='$row[5]' width='35px' height='35px'></img></td><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            } 
+                            echo "</table> \n"; 
+                            echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
+                            ?> 
 
                 </div>
             </div>
             
-            <div class="bloqueAsignacion">
-                <div>
-                    <h2>Herramientas</h2>
-                </div>
-            
-                <div class="white contenedorTabla">                                    
-                    <table class="centered responsive-table highlight bordered">
-                        <thead>
-                            <tr>
-                                <th>idHerramienta</th>
-                                <th>Nombre</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Alvin</td>
-                                <td>Eclair</td>
-                                <td>
-                                    <p>
-                                        <input type="checkbox" id="test1"/>
-                                        <label for="test1">Confirmar</label>
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Alan</td>
-                                <td>Jellybean</td>
-                                <td>
-                                    <p>
-                                        <input type="checkbox" id="test2"/>
-                                        <label for="test2">Confirmar</label>
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jonathan</td>
-                                <td>Lollipop</td>
-                                <td>
-                                    <p>
-                                        <input type="checkbox" id="test3"/>
-                                        <label for="test3">Confirmar</label>
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>               
-                    <a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>
-
-                </div>
-            </div>
         </div>
         
        

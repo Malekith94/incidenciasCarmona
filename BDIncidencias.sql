@@ -58,7 +58,7 @@ CREATE TABLE profesion(
     idProfesion int(11),
     marca varchar(50) NOT NULL,
     modelo varchar(80) NOT NULL,    
-    disponibilidad int(1) NOT NULL,
+    cantidad int(11) NOT NULL,
     logo varchar(200),
     PRIMARY KEY (matricula),
     CONSTRAINT FOREIGN KEY (idProfesion) REFERENCES profesion(idProfesion)
