@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>Incidencias Carmona</title>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
 
-    <link rel="stylesheet" href="css/asignaciones.css">
+    <link rel="stylesheet" href="../css/asignaciones.css">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -20,24 +20,24 @@
             <ul id="dropdown1" class="dropdown-content">
                 <li><a href="administracion.php">Administración</a></li>
                 <li class="divider"></li>
-                <li><a href="graficos.php">Gráficos</a></li>
+                <li><a href="../graficos.php">Gráficos</a></li>
             </ul>
 
             <ul id="dropdown2" class="dropdown-content">
                 <li><a href="administracion.php">Administración</a></li>
-                <li><a href="graficos.php">Gráficos</a></li>
+                <li><a href="../graficos.php">Gráficos</a></li>
             </ul>
 
             <nav>
                 <div class="nav-wrapper z-depth-5 yellow accent-2">
-                    <a href="#!" class="brand-logo"><img class="logo" src="imagenes/logo.png"></a>
+                    <a href="#!" class="brand-logo"><img class="logo" src="../imagenes/logo.png"></a>
 
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
                     <ul class="left hide-on-med-and-down cabecera">
 
-                        <li><a href="indexAdmin.php">Planning <span class="new badge red">4</span></a></li>
-                        <li><a href="usuarios.php">Usuarios</a></li>
+                        <li><a href="../indexAdmin.php">Planning <span class="new badge red">4</span></a></li>
+                        <li><a href="../usuarios.php">Usuarios</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
 
@@ -46,8 +46,8 @@
                     </ul>
 
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
-                        <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
+                        <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+                        <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
                     </ul>
 
                 </div>
@@ -55,11 +55,11 @@
         </div>
 
         <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
-            <li><a href="indexAdmin.php">Planning</a></li>
-            <li><a href="usuarios.php">Usuarios</a></li>
+            <li><a href="../indexAdmin.php">Planning</a></li>
+            <li><a href="../usuarios.php">Usuarios</a></li>
             <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Empresa<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
-            <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
+            <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
 
         <div class="container incidencias">
@@ -81,11 +81,15 @@
                             echo '<th>Nombre</th>';
                             echo '<th>Cantidad</th>';
                             echo '<th>Foto</th>';
+                            echo '<th>Editar</th>';
+                            echo '<th>Eliminar</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='$row[3]' width='35px' height='35px'></img></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='$row[3]' width='35px' height='35px'></img> <td><a href='#'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
+                            <td><a href='#'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td>
+                            </tr> \n "; 
                             } 
                             echo "</table>"; 
                             
@@ -114,11 +118,16 @@
                             echo '<th>Modelo</th>';
                             echo '<th>Cantidad</th>';
                             echo '<th>Foto</th>';
+                            echo '<th>Editar</th>';
+                            echo '<th>Eliminar</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='$row[5]' width='35px' height='35px'></img></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='$row[5]' width='35px' height='35px'></img>
+                            </img> <td><a href='#'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
+                            <td><a href='#'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td>
+                            </tr> \n "; 
                             } 
                             echo "</table>"; 
                            
@@ -143,11 +152,14 @@
                             echo '<tr>';
                             echo '<th>idProfesion</th>';
                             echo '<th>Nombre</th>';
+                            echo '<th>Editar</th>';
+                            echo '<th>Eliminar</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td> </img> <td><a href='#'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
+                            <td><a href='#'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td> </tr> \n "; 
                             } 
                             echo "</table>"; 
                             
@@ -164,9 +176,9 @@
       <i class="large material-icons">mode_edit</i>
     </a>
     <ul>
-      <li><a class="btn-floating yellow" href="#modal3"><img src="fotos/profesion.png" width="100%" height="100%"></a></li>
-      <li><a class="btn-floating yellow darken-1" href="#modal1"><img src="fotos/herramienta.png" width="100%" height="100%"></a></li>
-      <li><a class="btn-floating green" href="#modal2"><img src="fotos/coche.png" width="100%" height="100%"></a></li>
+      <li><a class="btn-floating yellow" href="#modal3"><img src="../fotos/profesion.png" width="100%" height="100%"></a></li>
+      <li><a class="btn-floating yellow darken-1" href="#modal1"><img src="../fotos/herramienta.png" width="100%" height="100%"></a></li>
+      <li><a class="btn-floating green" href="#modal2"><img src="../fotos/coche.png" width="100%" height="100%"></a></li>
     </ul>
   </div>
         
@@ -175,12 +187,12 @@
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <div class="container row center-align">
-                    <img src="fotos/herramienta.png" width="20%" height="20%">
+                    <img src="../fotos/herramienta.png" width="20%" height="20%">
                     <h4 align="center">Registrar herramienta</h4>
                 </div>
                 <!--Formulario registrar herramientas-->
                 <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="php/insertarHerramienta.php" method="POST" enctype="multipart/form-data">
+                    <form class="col s12" action="insertarHerramienta.php" method="POST" enctype="multipart/form-data">
                     
                         <div class="row">
 
@@ -207,25 +219,28 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
+                        </div>
+                    
                     </form>
+                    
                     
                 </div>
 
             </div>
-            <div class="modal-footer">
-                <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
-            </div>
+            
         </div>
 
         <div id="modal2" class="modal">
             <div class="modal-content">
                 <div class="container row center-align">
-                    <img src="fotos/coche.png" width="25%" height="25%">
+                    <img src="../fotos/coche.png" width="25%" height="25%">
                     <h4 align="center">Registrar vehiculo</h4>
                 </div>
                 <!--Formulario registrar vehiculos-->
                 <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="php/insertarVehiculo.php" method="POST" enctype="multipart/form-data">
+                    <form class="col s12" action="insertarVehiculo.php" method="POST" enctype="multipart/form-data">
                     
                         <div class="row">
 
@@ -293,25 +308,25 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <div class="modal-footer">
+                            <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
+                        </div>
                     </form>
                 </div>
 
             </div>
-            <div class="modal-footer">
-                <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
-            </div>
+            
         </div>
 
         <div id="modal3" class="modal">
             <div class="modal-content">
                 <div class="container row center-align">
-                    <img src="fotos/profesion.png" width="25%" height="25%">
+                    <img src="../fotos/profesion.png" width="25%" height="25%">
                     <h4 align="center">Registrar profesión</h4>
                 </div>
                 <!--Formulario registrar profesiones-->
                 <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="php/insertarProfesion.php" method="POST" enctype="multipart/form-data">
+                    <form class="col s12" action="insertarProfesion.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
 
                             <!--Nombre-->
@@ -321,13 +336,15 @@
                             </div>
 
                         </div>
+                        
+                        <div class="modal-footer">
+                            <button class="waves-effect waves-light btn right" type="submit" name="action324"><i class="material-icons right">send</i>confirmar</button>
+                        </div>
                     </form>
                 </div>
 
             </div>
-            <div class="modal-footer">
-                <button class="waves-effect waves-light btn right" type="submit" name="action324"><i class="material-icons right">send</i>confirmar</button>
-            </div>
+            
         </div>
 
 
@@ -359,9 +376,9 @@
                 </div>
             </div>
         </footer>
-    <script src="js/jquery-3.2.0.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/indexAdmin.js"></script>
+    <script src="../js/jquery-3.2.0.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/indexAdmin.js"></script>
 
 </body>
 
