@@ -1,5 +1,9 @@
 <?php
    
+    //noveas
+    session_start();
+    
+    $_SESSION['sesion'] = $_POST['txtuser'];
 
     $user = $_POST['txtuser'];
     $pass = $_POST['txtpass'];

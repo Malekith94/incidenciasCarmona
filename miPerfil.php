@@ -69,11 +69,13 @@
                         <div class="row">
                             <!--Rellenar formulario con php-->
                             <?php
+                                    session_start();
+                                    $correo = $_SESSION['sesion'];
                                     $link = mysql_connect("localhost", "root");
                                     mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM usuario where correo = '$correoSesion'", $link);
+                                    $result = mysql_query("SELECT * FROM usuario where correo = '$correo'", $link);
                                     $row = mysql_fetch_row($result);
-                            ?>
+                            ?>    
                                 <!--Formulario-->
                                 <form class="col s12" method="post" action="php/modificarMiPerfil.php"  enctype="multipart/form-data">
                                     <div class="row espacio">
