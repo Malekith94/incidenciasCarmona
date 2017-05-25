@@ -97,7 +97,7 @@
             while ($row = mysql_fetch_row($result)){
             echo '<li>';
                 echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]</div>";
-                echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br> <a href='#!'><i class='material-icons right'>delete</i></a><a href='#!'><i class='material-icons right'>mode_edit</i></a> </div>";
+                echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br> <a href='#!'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a> </div>";
             echo '</li>';
             }
         echo '</ul>';
@@ -116,7 +116,7 @@
             while ($row = mysql_fetch_row($result)){
             echo '<li>';
                 echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]</div>";
-                echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br> <a href='#!'><i class='material-icons right'>delete</i></a><a href='#!'><i class='material-icons right'>mode_edit</i></a> </div>";
+                echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br> <a href='#!'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a> </div>";
             echo '</li>';
             }
         echo '</ul>';
@@ -323,16 +323,23 @@
                             </div>
 
                             <!--Tipo -->
-                            <div class="input-field col s6">
                             <?php
+                            echo '<div class="input-field col s6">';
+                            
                             if($row[2] == 0){
                                 echo'<input name="tipos" type="radio" id="administrador" value="0" selected />';
                                 echo '<label for="administrador">Administrador</label>';
-                            }else
                                 echo '<input name="tipos" type="radio" id="empleado" value="1" selected/>';
                                 echo '<label for="empleado">Empleado</label>';
+                            }else{
+                                echo'<input name="tipos" type="radio" id="administrador" value="0" />';
+                                echo '<label for="administrador">Administrador</label>';
+                                echo '<input name="tipos" type="radio" id="empleado" value="1" selected/>';
+                                echo '<label for="empleado">Empleado</label>';
+                            }
+                            
+                            echo '</div>';
                             ?>
-                            </div>
 
                         </div>
 
@@ -375,7 +382,11 @@
                             if($row[10]=='masculino'){
                             echo'<input name="sexo" type="radio" id="masculino" value="masculino" selected />';
                             echo'<label for="masculino" name>Masculino</label>';
+                            echo'<input name="sexo" type="radio" id="femenino" value="femenino"/>';
+                            echo '<label for="femenino">Femenino</label>';
                             }else{
+                            echo'<input name="sexo" type="radio" id="masculino" value="masculino" />';
+                            echo'<label for="masculino" name>Masculino</label>';
                             echo'<input name="sexo" type="radio" id="femenino" value="femenino" selected/>';
                             echo '<label for="femenino">Femenino</label>';
                             }
@@ -415,6 +426,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 
     <!--Footer-->
