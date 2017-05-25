@@ -65,7 +65,7 @@
 
     <div class="container incidencias">
 
-        <!--Collapsible ciudadanos-->
+        <!--Collapsible administradores-->
         <div class="espacio">
             <h3>Administradores</h3>
             <?php
@@ -76,14 +76,14 @@
 		    echo '<ul class="collapsible popout" data-collapsible="accordion">';
             while ($row = mysql_fetch_row($result)){
 			echo '<li>';
-				echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]</div>";
-				echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br> <a href='#!'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a> </div>";
+				echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=<?php echo $row[0];?>'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a></div>";
+				echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
 			echo '</li>';
 			}
 		echo '</ul>';
         ?>
         </div>
-        <!--Collapsible ciudadanos-->
+        <!--Collapsible empleados-->
         <div class="espacio">
 
             <h3>Empleados</h3>
@@ -264,17 +264,17 @@
     </div>
 
     <!--Ventana modal editar usuario-->
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <div class="container center-align">
-                    <i class="large material-icons">perm_identity</i>
-                    <h4 align="center">Editar usuario</h4>
-                </div>
-                <!--Formulario registrar usuario-->
-                <div id="nuevoUsuario" class="row">
-                    <form class="col s12" action="php/modificarUsuario.php" method="POST" enctype="multipart/form-data">
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="container center-align">
+                <i class="large material-icons">perm_identity</i>
+                <h4 align="center">Editar usuario</h4>
+            </div>
+            <!--Formulario registrar usuario-->
+            <div id="nuevoUsuario" class="row">
+                <form class="col s12" action="php/modificarUsuario.php" method="POST" enctype="multipart/form-data">
 
-                        <div class="row">
+                    <div class="row">
 
                         <?php
                                     $link = mysql_connect("localhost", "root");
@@ -292,17 +292,17 @@
 
                             <!--Fecha nacimiento-->
                             <div class="input-field col s6">
-                                <input id="labelFecha" name="fecha" type="date" value="<?php echo $row[10]; ?>"  class="datepicker">
+                                <input id="labelFecha" name="fecha" type="date" value="<?php echo $row[10]; ?>" class="datepicker">
                                 <label for="labelFecha">Fecha</label>
                             </div>
 
-                        </div>
+                    </div>
 
-                        <div class="row">
+                    <div class="row">
 
-                            <!--Profesion-->
-                            <div class="input-field col s6">
-                                <select id="combo" name="profesiones">
+                        <!--Profesion-->
+                        <div class="input-field col s6">
+                            <select id="combo" name="profesiones">
                                 <option selected="<?php echo $row[1]; ?>">Seleccione una profesión...</option>
                                 <?php 
                                     $conexion=mysql_connect("localhost","root","") or
@@ -320,10 +320,10 @@
                                 ?>
                                 </select>
 
-                            </div>
+                        </div>
 
-                            <!--Tipo -->
-                            <?php
+                        <!--Tipo -->
+                        <?php
                             echo '<div class="input-field col s6">';
                             
                             if($row[2] == 0){
@@ -341,44 +341,44 @@
                             echo '</div>';
                             ?>
 
-                        </div>
+                    </div>
 
-                        <!--Email-->
-                        <div class="input-field col s6">
-                            <input id="labelEmail" name="email" type="text" data-length="60" class="validate" value="<?php echo $row[4]; ?>">
-                            <label for="labelEmail">Email</label>
-                        </div>
+                    <!--Email-->
+                    <div class="input-field col s6">
+                        <input id="labelEmail" name="email" type="text" data-length="60" class="validate" value="<?php echo $row[4]; ?>">
+                        <label for="labelEmail">Email</label>
+                    </div>
 
-                        <!--Contraseña-->
-                        <div class="input-field col s6">
-                            <input id="labelPass" name="pass" type="password" data-length="25" class="validate" value="<?php echo $row[3]; ?>">
-                            <label for="labelPass">Contraseña</label>
-                        </div>
-
-
-                        <!--Nombre-->
-                        <div class="input-field col s6">
-                            <input id="labelNombre" name="nombre" type="text" data-length="50" class="validate" value="<?php echo $row[5]; ?>">
-                            <label for="labelNombre">Nombre</label>
-                        </div>
-
-                        <!--Apellidos-->
-                        <div class="input-field col s6">
-                            <input id="labelApellidos" name="apellidos" type="text" data-length="80" class="validate" value="<?php echo $row[6]; ?>">
-                            <label for="labelApellidos">Apellidos</label>
-                        </div>
-
-                        <!--Direccion-->
-                        <div class="input-field col s12">
-                            <input id="labelDireccion" name="direccion" type="text" data-length="100" class="validate" value="<?php echo $row[9]; ?>">
-                            <label for="labelDireccion">Dirección</label>
-                        </div>
+                    <!--Contraseña-->
+                    <div class="input-field col s6">
+                        <input id="labelPass" name="pass" type="password" data-length="25" class="validate" value="<?php echo $row[3]; ?>">
+                        <label for="labelPass">Contraseña</label>
+                    </div>
 
 
-                        <!--Sexo-->
-                        <div id="sexodiv" class="input-field col s5">
+                    <!--Nombre-->
+                    <div class="input-field col s6">
+                        <input id="labelNombre" name="nombre" type="text" data-length="50" class="validate" value="<?php echo $row[5]; ?>">
+                        <label for="labelNombre">Nombre</label>
+                    </div>
 
-                            <?php
+                    <!--Apellidos-->
+                    <div class="input-field col s6">
+                        <input id="labelApellidos" name="apellidos" type="text" data-length="80" class="validate" value="<?php echo $row[6]; ?>">
+                        <label for="labelApellidos">Apellidos</label>
+                    </div>
+
+                    <!--Direccion-->
+                    <div class="input-field col s12">
+                        <input id="labelDireccion" name="direccion" type="text" data-length="100" class="validate" value="<?php echo $row[9]; ?>">
+                        <label for="labelDireccion">Dirección</label>
+                    </div>
+
+
+                    <!--Sexo-->
+                    <div id="sexodiv" class="input-field col s5">
+
+                        <?php
                             if($row[10]=='masculino'){
                             echo'<input name="sexo" type="radio" id="masculino" value="masculino" selected />';
                             echo'<label for="masculino" name>Masculino</label>';
@@ -391,41 +391,41 @@
                             echo '<label for="femenino">Femenino</label>';
                             }
                             ?>
-                            
+
+                    </div>
+
+                    <!--Telefono-->
+                    <div id="tel" class="input-field col s7">
+                        <input id="labelTelefono" name="telefono" type="text" data-length="9" class="validate" value="<?php echo $row[8]; ?>">
+                        <label for="labelTelefono">Telefono</label>
+                    </div>
+
+
+                    <!--Imagen-->
+
+                    <div class="file-field input-field col s12">
+                        <div class="btn">
+                            <span>Foto</span>
+                            <input type="file" name="foto" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="<?php echo $row[7]; ?>">
                         </div>
 
-                        <!--Telefono-->
-                        <div id="tel" class="input-field col s7">
-                            <input id="labelTelefono" name="telefono" type="text" data-length="9" class="validate" value="<?php echo $row[8]; ?>">
-                            <label for="labelTelefono">Telefono</label>
-                        </div>
-
-
-                        <!--Imagen-->
-
-                        <div class="file-field input-field col s12">
-                            <div class="btn">
-                                <span>Foto</span>
-                                <input type="file" name="foto" multiple>
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="<?php echo $row[7]; ?>">
-                            </div>
-
-                        </div>
+                    </div>
 
 
 
-                        <div class="modal-footer">
-                            <!--<a href="#!" type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
+                    <div class="modal-footer">
+                        <!--<a href="#!" type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>-->
-                            <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
+                        <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
 
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 
 
     </div>
