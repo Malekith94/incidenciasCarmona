@@ -76,7 +76,7 @@
 		    echo '<ul class="collapsible popout" data-collapsible="accordion">';
             while ($row = mysql_fetch_row($result)){
 			echo '<li>';
-				echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=<?php echo $row[0];?>'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a></div>";
+				echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a></div>";
 				echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
 			echo '</li>';
 			}
@@ -96,8 +96,8 @@
 		 echo '<ul class="collapsible popout" data-collapsible="accordion">';
             while ($row = mysql_fetch_row($result)){
             echo '<li>';
-                echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]</div>";
-                echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br> <a href='#!'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a> </div>";
+                echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a></div>";
+				echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
             echo '</li>';
             }
         echo '</ul>';
@@ -115,8 +115,8 @@
          echo '<ul class="collapsible popout" data-collapsible="accordion">';
             while ($row = mysql_fetch_row($result)){
             echo '<li>';
-                echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]</div>";
-                echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br> <a href='#!'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a> </div>";
+                echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a></div>";
+				echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
             echo '</li>';
             }
         echo '</ul>';
