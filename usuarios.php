@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    include("conexion.php");
+?>
 <html>
 
 <head>
@@ -69,9 +72,10 @@
         <div class="espacio">
             <h3>Administradores</h3>
             <?php
-             $link = mysql_connect("localhost", "root");
-            mysql_select_db("incidencias", $link);
-            $result = mysql_query("SELECT * FROM usuario WHERE tipo=0", $link);
+             //$link = mysql_connect("localhost", "root");
+            //mysql_select_db("incidencias", $link);
+            
+            $result = mysql_query("SELECT * FROM usuario WHERE tipo=0", $mysqli);
 
 		    echo '<ul class="collapsible popout" data-collapsible="accordion">';
             while ($row = mysql_fetch_row($result)){
