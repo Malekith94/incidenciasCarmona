@@ -1,6 +1,7 @@
 <?php
-
-include("conexion.php");
+    
+    
+    include("conexion.php");
 
     $dni = $_REQUEST['id'];
     
@@ -10,7 +11,7 @@ include("conexion.php");
     if($resultado){
         header("Location:usuarios.php");
     }else{
-        echo "Insercion fallida";
+        echo "<html><body><script language='javascript'>alert('No se puede eliminar por que tiene incidencias asociadas'); window.location='usuarios.php'</script></body></html>";
     }
 
 ?>

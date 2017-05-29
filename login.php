@@ -1,6 +1,5 @@
 <?php
    
-    //noveas
     session_start();
     
     $_SESSION['sesion'] = $_POST['txtuser'];
