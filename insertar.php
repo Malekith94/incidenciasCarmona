@@ -10,13 +10,14 @@ $img = $_FILES["foto"]["name"];
 $ruta = $_FILES["foto"]["tmp_name"];
 $destino = 'fotos/'.$img;
 copy($ruta, $destino);
+$fecha = getdate('Y-m-d');
 
 // Check connection
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 } 
 
-$insertar = "INSERT INTO incidencia (nombre, descripcion, localizacion, logo) VALUES ('$nom', '$desc', '$dir', '$destino')";
+$insertar = "INSERT INTO incidencia (nombre, descripcion, logo, localizacion, fechaSuceso) VALUES ('$nom', '$desc', '$destino', '$dir', $fecha)";
 
 if ($mysqli->query($insertar)) {
     echo '<script language="javascript"> alert("Se ha publicado la incidencia correctamente"); window.location="indexAdmin.php"; </script>';

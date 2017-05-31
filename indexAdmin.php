@@ -75,7 +75,7 @@
             <?php
             $link = mysql_connect("localhost", "root");
             mysql_select_db("incidencias", $link);
-            $result = mysql_query("SELECT * FROM incidencia", $link);
+            $result = mysql_query("SELECT * FROM incidencia where estado=0", $link);
             
             echo '<ul class="collection">';
             
@@ -84,7 +84,10 @@
                 echo '<i class="material-icons circle green">insert_chart</i>';
                 echo "<span class='title'>$row[2]</span>";
                 echo "<p>$row[3]</p>";
-                echo '<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>';
+                echo '<a href="#!"><i class="material-icons right">supervisor_account</i></a>';
+                echo '<a href="#!"><i class="material-icons right">delete</i></a>';
+                echo '<a href="#!"><i class="material-icons right">mode_edit</i></a>';
+                
             }
             echo '</ul>';
             ?>

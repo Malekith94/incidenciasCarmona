@@ -330,7 +330,7 @@
                             if($row[2] == 0){
                                 echo'<input name="tipos" type="radio" id="administrador" value="0" selected />';
                                 echo '<label for="administrador">Administrador</label>';
-                                echo '<input name="tipos" type="radio" id="empleado" value="1" selected/>';
+                                echo '<input name="tipos" type="radio" id="empleado" value="1"/>';
                                 echo '<label for="empleado">Empleado</label>';
                             }else{
                                 echo'<input name="tipos" type="radio" id="administrador" value="0" />';
