@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>Incidencias Carmona</title>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
 
-    <link rel="stylesheet" href="css/asignaciones.css">
+    <link rel="stylesheet" href="../css/asignaciones.css">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -20,7 +20,7 @@
 
             <nav>
                 <div class="nav-wrapper z-depth-5 yellow accent-2">
-                    <a href="#!" class="brand-logo"><img class="logo" src="imagenes/logo.png"></a>
+                    <a href="#!" class="brand-logo"><img class="logo" src="../imagenes/logo.png"></a>
 
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
@@ -94,12 +94,13 @@
                             echo '<tr>';
                             echo '<th>Marca</th>';
                             echo '<th>Modelo</th>';
+                            echo '<th>Matricula</th>';
                             echo '<th>Fecha</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
@@ -138,9 +139,9 @@
                 </div>
             </div>
         </footer>
-    <script src="js/jquery-3.2.0.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/asignaciones.js"></script>
+    <script src="../js/jquery-3.2.0.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/asignaciones.js"></script>
 
 </body>
 
