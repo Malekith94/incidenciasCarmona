@@ -1,7 +1,7 @@
 <?php
     
     
-    include("conexion.php");
+    include("../conexion.php");
 
     $dni = $_REQUEST['id'];
     
@@ -9,9 +9,9 @@
     $resultado = $mysqli->query($query);
 
     if($resultado){
-        header("Location:usuarios.php");
+        header("Location:prestadoUsuario.php");
     }else{
-        echo "<html><body><script language='javascript'>alert('Se ha eliminado el vehiculo del inventario del usuario'); window.location='usuarios.php'</script></body></html>";
+        echo "<html><body><script language='javascript'>alert('Se ha eliminado el vehiculo del inventario del usuario'); window.location='prestadoUsuario.php'</script></body></html>";
     }
 
 ?>
