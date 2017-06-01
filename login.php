@@ -4,6 +4,7 @@
     
     $_SESSION['sesion'] = $_POST['txtuser'];
 
+
     $user = $_POST['txtuser'];
     $pass = $_POST['txtpass'];
 

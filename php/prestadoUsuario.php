@@ -57,10 +57,13 @@
                 <div class="white contenedorTabla">                                    
                       <?php 
                             session_start();
-                            $dniEmpleado=$_SESSION['sesion'];
-                            $link = mysql_connect("localhost", "root"); 
-                            mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT i.nombre, ui.dni, ui.fecha FROM usuarioinventario ui join inventario i where ui.idHerramienta=i.idHerramienta and ui.dni='$dniEmpleado'", $link); 
+                            $correo = $_SESSION['sesion'];
+                            $link = mysql_connect("localhost", "root");
+                            mysql_select_db("incidencias", $link);
+                            $result = mysql_query("SELECT * FROM usuario where correo = '$correo'", $link);
+                            $row = mysql_fetch_row($result);
+                            $result2 = mysql_query("SELECT * FROM usuarioinventario where dni = '$row[0]'", $link);
+                            $row2 = mysql_fetch_row($result); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -71,7 +74,7 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[1]</td><td>$row[0]</td><td>$row[2]</td><td><a href='#'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
+                            echo "<tr><td>$row2[0]</td><td>$row2[0]</td><td>$row2[0]</td><td><a href='#'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             
