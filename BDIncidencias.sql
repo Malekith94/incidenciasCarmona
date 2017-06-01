@@ -43,7 +43,7 @@ CREATE TABLE profesion(
     dni varchar(9),
     nombre varchar(100) NOT NULL,
     descripcion varchar(150) NOT NULL,
-    estado int(1),
+    estado int(1) DEFAULT 0,
     logo varchar(200),
     prioridad int(1),
     localizacion varchar(200) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE plan(
 CREATE TABLE usuarioInventario(
     idHerramienta int(11),
     dni varchar(9),
-    fecha date NOT NULL,
+    fecha date NOT NULL DEFAULT GETDATE(),
     PRIMARY KEY (idHerramienta, dni),
     CONSTRAINT FOREIGN KEY (idHerramienta) REFERENCES inventario(idHerramienta),
     CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni)
@@ -87,7 +87,7 @@ CREATE TABLE usuarioInventario(
 CREATE TABLE usuarioVehiculo(
     dni varchar(9),
     matricula varchar(7),
-    fecha date NOT NULL,
+    fecha date NOT NULL DEFAULT GETDATE(),
     PRIMARY KEY (dni, matricula),
     CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni),
     CONSTRAINT FOREIGN KEY (matricula) REFERENCES vehiculo(matricula)

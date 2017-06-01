@@ -58,20 +58,18 @@
                       <?php 
                             $link = mysql_connect("localhost", "root"); 
                             mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT * FROM inventario", $link); 
+                            $result = mysql_query("SELECT i.nombre, ui.dni, ui.fecha FROM usuarioinventario ui join inventario i where ui.idHerramienta=i.idHerramienta", $link); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
-                            echo '<th>idHerramienta</th>';
+                            echo '<th>Dni</th>';
                             echo '<th>Nombre</th>';
-                            echo '<th>Cantidad</th>';
-                            echo '<th>Foto</th>';
-                            echo '<th>Coger</th>';
+                            echo '<th>Fecha</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='$row[3]' width='35px' height='35px'></img><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
@@ -90,22 +88,18 @@
                    <?php 
                             $link = mysql_connect("localhost", "root"); 
                             mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT * FROM vehiculo", $link); 
+                            $result = mysql_query("SELECT v.marca, v.modelo, uv.dni, uv.fecha FROM vehiculo v join usuariovehiculo uv where v.matricula=uv.matricula", $link); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
-                            echo '<th>Matrícula</th>';
-                            echo '<th>idProfesion</th>';
                             echo '<th>Marca</th>';
                             echo '<th>Modelo</th>';
-                            echo '<th>Cantidad</th>';
-                            echo '<th>Foto</th>';
-                            echo '<th>Coger</th>';
+                            echo '<th>Fecha</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='$row[5]' width='35px' height='35px'></img></td><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';

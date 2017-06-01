@@ -96,7 +96,6 @@
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
                     while ($row = mysql_fetch_row($result)){
                         echo '<li>';
-                        
                         echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a></div>";
                         echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
                         echo '</li>';
@@ -273,14 +272,15 @@
             </div>
             <!--Formulario editar usuario-->
             <div id="nuevoUsuario" class="row">
-                <form class="col s12" action="php/modificarUsuario.php" method="POST" enctype="multipart/form-data">
+                <form class="col s12" action="modificarUsuario.php" method="POST" enctype="multipart/form-data">
 
                     <div class="row">
 
                         <?php       
+
                                     $link=mysql_connect("localhost", "root");
                                     mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM usuario where dni = '00000000a'", $link);
+                                    $result = mysql_query("SELECT * FROM usuario where dni = '$dniAdmin'", $link);
                                     $row = mysql_fetch_row($result);
                             ?>
 
