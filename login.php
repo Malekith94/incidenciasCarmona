@@ -32,7 +32,7 @@
         // Muestras el contenido de la pagina 
         header("location:indexAdmin.php");
     }else if ($filas > 0 and $prueba["tipo"] == 1){
-        header("location:indexEmpleado.html");
+        header("location:indexEmpleado.php");
 		
     }else{
         header("location:login.html");

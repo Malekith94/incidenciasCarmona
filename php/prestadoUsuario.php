@@ -26,14 +26,14 @@
 
                     <ul class="left hide-on-med-and-down cabecera">
 
-                        <li><a href="indexEmpleado.php">Planning <span class="new badge blue">4</span></a></li>
-                        <li><a href="asignaciones.php">Asignaciones</a></li>
+                        <li><a href="../indexEmpleado.php">Planning <span class="new badge blue">4</span></a></li>
+                        <li><a href="../asignaciones.php">Asignaciones</a></li>
 
                     </ul>
 
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
-                        <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
+                        <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+                        <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
                     </ul>
 
                 </div>
@@ -41,10 +41,10 @@
         </div>
         
         <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
-            <li><a href="indexAdmin.php">Planning</a></li>
-            <li><a href="usuarios.php">Asignaciones</a></li>
-            <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
-            <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
+            <li><a href="../indexAdmin.php">Planning</a></li>
+            <li><a href="../usuarios.php">Asignaciones</a></li>
+            <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
 
         <div class="container incidencias">
@@ -56,9 +56,11 @@
             
                 <div class="white contenedorTabla">                                    
                       <?php 
+                            session_start();
+                            $dniEmpleado=$_SESSION['sesion'];
                             $link = mysql_connect("localhost", "root"); 
                             mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT i.nombre, ui.dni, ui.fecha FROM usuarioinventario ui join inventario i where ui.idHerramienta=i.idHerramienta", $link); 
+                            $result = mysql_query("SELECT i.nombre, ui.dni, ui.fecha FROM usuarioinventario ui join inventario i where ui.idHerramienta=i.idHerramienta and ui.dni='$dniEmpleado'", $link); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -69,10 +71,10 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr> \n "; 
+                            echo "<tr><td>$row[1]</td><td>$row[0]</td><td>$row[2]</td><td><a href='#'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
-                            echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
+                            
                             ?> 
 
 
@@ -88,22 +90,21 @@
                    <?php 
                             $link = mysql_connect("localhost", "root"); 
                             mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT v.marca, v.modelo, uv.dni, uv.fecha FROM vehiculo v join usuariovehiculo uv where v.matricula=uv.matricula", $link); 
+                            $result = mysql_query("SELECT * FROM usuarioVehiculo where dni='$dniEmpleado'", $link); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
-                            echo '<th>Marca</th>';
-                            echo '<th>Modelo</th>';
+                            echo '<th>Dni</th>';
                             echo '<th>Matricula</th>';
                             echo '<th>Fecha</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><a href='#'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
-                            echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
+                            
                             ?> 
 
                 </div>

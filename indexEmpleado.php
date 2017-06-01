@@ -27,6 +27,7 @@
 
                         <li><a href="indexEmpleado.php">Planning <span class="new badge blue">4</span></a></li>
                         <li><a href="asignaciones.php">Asignaciones</a></li>
+                        <li><a href="php/prestadoUsuario.php">En prestamo</a></li>
 
                     </ul>
 
@@ -42,6 +43,7 @@
         <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
             <li><a href="indexEmpleado.php">Planning</a></li>
             <li><a href="asignaciones.php">Asignaciones</a></li>
+            <li><a href="php/prestadoUsuario.php">En prestamo</a></li>
             <li><a href="perfil.php"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
