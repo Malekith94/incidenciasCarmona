@@ -78,7 +78,7 @@ CREATE TABLE plan(
 CREATE TABLE usuarioInventario(
     idHerramienta int(11),
     dni varchar(9),
-    fecha date NOT NULL DEFAULT GETDATE(),
+    fecha date NOT NULL,
     PRIMARY KEY (idHerramienta, dni),
     CONSTRAINT FOREIGN KEY (idHerramienta) REFERENCES inventario(idHerramienta),
     CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni)
@@ -87,7 +87,7 @@ CREATE TABLE usuarioInventario(
 CREATE TABLE usuarioVehiculo(
     dni varchar(9),
     matricula varchar(7),
-    fecha date NOT NULL DEFAULT GETDATE(),
+    fecha date NOT NULL,
     PRIMARY KEY (dni, matricula),
     CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni),
     CONSTRAINT FOREIGN KEY (matricula) REFERENCES vehiculo(matricula)

@@ -10,7 +10,7 @@ $img = $_FILES["foto"]["name"];
 $ruta = $_FILES["foto"]["tmp_name"];
 $destino = 'fotos/'.$img;
 copy($ruta, $destino);
-$fecha = getdate('Y-m-d');
+$fecha = date('Y-m-d');
 
 // Check connection
 if ($mysqli->connect_error) {
