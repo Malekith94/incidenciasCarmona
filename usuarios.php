@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Incidencias Carmona</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="css/materialize.min.css">
@@ -280,8 +280,10 @@
 
                                     $link=mysql_connect("localhost", "root");
                                     mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM usuario where dni = '$dniAdmin'", $link);
-                                    $row = mysql_fetch_row($result);
+                                    $resultUsu = mysql_query("SELECT * FROM usuario where dni = '$dniAdmin'", $link);
+                                    $row = mysql_fetch_row($resultUsu);
+                                    $resultProf = mysql_query("SELECT * from profesion where idProfesion=$row[1]");
+                                    $row2 = mysql_fetch_row($resultProf);
                             ?>
 
 
@@ -303,50 +305,33 @@
 
                         <!--Profesion-->
                         <div class="input-field col s6">
-                            <select id="combo" name="profesiones">
-                                <option selected="<?php echo $row[1]; ?>">Seleccione una profesión...</option>
-                                <?php 
-                                    $conexion=mysql_connect("localhost","root","") or
-                                    die("Problemas en la conexion");
-                                    mysql_select_db("incidencias",$conexion) or
-                                    die("Problemas en la selección de la base de datos");  
-                                    mysql_query ("SET NAMES 'utf8'");
-                                    $query=mysql_query("select idProfesion, nombre from profesion", $conexion) or
-                                    die("Problemas en el select:".mysql_error());
-                                    while($row = mysql_fetch_array($query))
-                                    {
-                                    echo'<OPTION VALUE="'.$row['idProfesion'].'">'.$row['nombre'].'</OPTION>';
-                                        echo $row['idProfesion'];
-                                    }
-                                ?>
-                                </select>
-
+                           <input disabled id="labelProfesion" name="profesion" type="text" value="<?php echo $row2[1] ?>" data-length="60" class="validate">
+                            <label for="labelProfesion">Profesion</label>
                         </div>
 
                         <!--Tipo -->
-                        <?php
-                            echo '<div class="input-field col s6">';
-                            
+                        
+                            <div class="input-field col s6">
+                            <?php
                             if($row[2] == 0){
-                                echo'<input name="tipos" type="radio" id="administrador" value="0" selected />';
+                                echo'<input name="tipos" type="radio" id="administrador" value="0" checked="checked" />';
                                 echo '<label for="administrador">Administrador</label>';
                                 echo '<input name="tipos" type="radio" id="empleado" value="1"/>';
                                 echo '<label for="empleado">Empleado</label>';
                             }else{
                                 echo'<input name="tipos" type="radio" id="administrador" value="0" />';
                                 echo '<label for="administrador">Administrador</label>';
-                                echo '<input name="tipos" type="radio" id="empleado" value="1" selected/>';
+                                echo '<input name="tipos" type="radio" id="empleado" value="1" checked="checked"/>';
                                 echo '<label for="empleado">Empleado</label>';
                             }
                             
-                            echo '</div>';
                             ?>
-
+                            </div>
                     </div>
 
                     <!--Email-->
                     <div class="input-field col s6">
-                        <input id="labelEmail" name="email" type="text" data-length="60" class="validate" value="<?php echo $row[4]; ?>">
+                        <input id="labelEmail" name="email" type="text" value="<?php echo $row[4] ?>" data-length="60" class="validate">
                         <label for="labelEmail">Email</label>
                     </div>
 
@@ -380,15 +365,15 @@
                     <div id="sexodiv" class="input-field col s5">
 
                         <?php
-                            if($row[10]=='masculino'){
-                            echo'<input name="sexo" type="radio" id="masculino" value="masculino" selected />';
+                            if($row[11] == 'femenino'){
+                            echo'<input name="sexo" type="radio" id="masculino" value="masculino"/>';
                             echo'<label for="masculino" name>Masculino</label>';
-                            echo'<input name="sexo" type="radio" id="femenino" value="femenino"/>';
+                            echo'<input name="sexo" type="radio" id="femenino" value="femenino" checked="checked"/>';
                             echo '<label for="femenino">Femenino</label>';
                             }else{
-                            echo'<input name="sexo" type="radio" id="masculino" value="masculino" />';
+                            echo'<input name="sexo" type="radio" id="masculino" value="masculino" checked="checked" />';
                             echo'<label for="masculino" name>Masculino</label>';
-                            echo'<input name="sexo" type="radio" id="femenino" value="femenino" selected/>';
+                            echo'<input name="sexo" type="radio" id="femenino" value="femenino" />';
                             echo '<label for="femenino">Femenino</label>';
                             }
                             ?>
