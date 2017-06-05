@@ -30,3 +30,10 @@ max: new Date(2017, 31, 12),
 format: 'yyyy-mm-dd'
 })});
 
+function prueba(){
+
+$('#modal2').modal('open');
+
+};
+
+
