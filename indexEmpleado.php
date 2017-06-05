@@ -65,7 +65,7 @@
                 $result = mysql_query("SELECT * FROM incidencia where dni = (select dni from usuario where correo='$correo')", $link);
                 $row = mysql_fetch_row($result);
             
-            echo '<ul class="collection">';
+                echo '<ul class="collection">';
                 
                 while ($row = mysql_fetch_row($result)){
                 echo '<li class="collection-item avatar">';
@@ -138,6 +138,9 @@
 
 
     </div>
+    <br>
+    <br>
+    <br>
 
     <!--Footer-->
     <footer class="page-footer yellow accent-2">

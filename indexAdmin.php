@@ -35,8 +35,16 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
                     <ul class="left hide-on-med-and-down cabecera">
+                        
+                        <?php
+                        $link = mysql_connect("localhost", "root");
+                        mysql_select_db("incidencias", $link);
+                        $badge= "select count(*) as suma from incidencia where estado=0";
+                        $resultado =mysql_query($badge, $link);
+                        $row = mysql_fetch_row($resultado);
+                        ?>
 
-                        <li><a href="indexAdmin.php">Planning <span class="new badge red">4</span></a></li>
+                        <li><a href="indexAdmin.php">Planning <span class="new badge red"> <?php echo $row[0] ?> </span></a></li>
                         <li><a href="usuarios.php">Usuarios</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
@@ -154,6 +162,11 @@
 
 
     </div>
+    
+    <br>
+    <br>
+    <br>
+
 
     <!--Footer-->
     <footer class="page-footer yellow accent-2">
@@ -179,10 +192,11 @@
             </div>
         </div>
     </footer>
+    
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/indexAdmin.js"></script>
-
+    
 </body>
 
 </html>
