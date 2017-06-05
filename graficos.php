@@ -214,15 +214,13 @@ $(function () {
         <div class="navbar-fixed">
 
             <ul id="dropdown1" class="dropdown-content">
-                <li><a href="administracion.php">Administración</a></li>
+                <li><a href="php/administracion.php">Administración</a></li>
                 <li class="divider"></li>
                 <li><a href="graficos.php">Gráficos</a></li>
             </ul>
 
             <ul id="dropdown2" class="dropdown-content">
-                <li><a href="herramientas.php">Herramientas</a></li>
-                <li><a href="vehiculos.php">Vehiculos</a></li>
-                <li><a href="profesiones.php">Profesión</a></li>
+                <li><a href="php/administracion.php">Profesión</a></li>
                 <li><a href="graficos.php">Gráficos</a></li>
             </ul>
 
@@ -234,7 +232,7 @@ $(function () {
 
                     <ul class="left hide-on-med-and-down cabecera">
 
-                        <li><a href="indexAdmin.php">Planning <span class="new badge red">4</span></a></li>
+                        <li><a href="indexAdmin.php">Planning</a></li>
                         <li><a href="usuarios.php">Usuarios</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>

@@ -26,7 +26,7 @@
 
                     <ul class="left hide-on-med-and-down cabecera">
 
-                        <li><a href="indexEmpleado.php">Planning <span class="new badge blue">4</span></a></li>
+                        <li><a href="indexEmpleado.php">Planning</a></li>
                         <li><a href="asignaciones.php">Asignaciones</a></li>
 
                     </ul>

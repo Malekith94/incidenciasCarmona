@@ -34,7 +34,7 @@
 
                 <ul class="left hide-on-med-and-down cabecera">
 
-                    <li><a href="indexAdmin.php">Planning <span class="new badge red">4</span></a></li>
+                    <li><a href="indexAdmin.php">Planning</a></li>
                     <li><a href="usuarios.php">Usuarios</a></li>
                     <!-- Dropdown Trigger -->
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
