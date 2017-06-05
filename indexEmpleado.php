@@ -24,8 +24,19 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
                     <ul class="left hide-on-med-and-down cabecera">
+                        
+                        <?php
+                        session_start();
+                        $correo = $_SESSION['sesion'];
+                        $link = mysql_connect("localhost", "root");
+                        mysql_select_db("incidencias", $link);
+                        $query = mysql_query("select dni from usuario where correo='$correo'");
+                        $resultado = mysql_fetch_row($query);
+                        $query2 = mysql_query("select count(*) from incidencia where dni='$resultado[0]'");
+                        $resultado2 = mysql_fetch_row($query2);
+                        ?>
 
-                        <li><a href="indexEmpleado.php">Planning <span class="new badge blue">4</span></a></li>
+                        <li><a href="indexEmpleado.php">Planning <span class="new badge blue"> <?php echo $resultado2[0] ?> </span></a></li>
                         <li><a href="asignaciones.php">Asignaciones</a></li>
                         <li><a href="php/prestadoUsuario.php">En prestamo</a></li>
 
@@ -62,19 +73,20 @@
                 $correo = $_SESSION['sesion'];
                 $link = mysql_connect("localhost", "root");
                 mysql_select_db("incidencias", $link);
-                $result = mysql_query("SELECT * FROM incidencia where dni = (select dni from usuario where correo='$correo')", $link);
+                $result = mysql_query("select dni from usuario where correo='$correo'");
                 $row = mysql_fetch_row($result);
-            
-                echo '<ul class="collection">';
+                $result2 = mysql_query("select * from incidencia where dni='$row[0]'");
+        
+              echo '<ul class="collection">';
                 
-                while ($row = mysql_fetch_row($result)){
+              while ($row2 = mysql_fetch_row($result2)){
                 echo '<li class="collection-item avatar">';
-                echo "<img src='$row[5]' alt='' class='circle'>";
-                echo "<span class='title'>$row[2]</span>";
-                echo "<p>$row[3]</p>";
+                echo "<img src='$row2[5]' alt='' class='circle'>";
+                echo "<span class='title'>$row2[2]</span>";
+                echo "<p>$row2[3]</p>";
                 echo '<a href="#!"><i class="material-icons right">done</i></a>';
                 
-            }
+             }
             echo '</ul>';
             ?>
         
