@@ -32,7 +32,7 @@
                         mysql_select_db("incidencias", $link);
                         $query = mysql_query("select dni from usuario where correo='$correo'");
                         $resultado = mysql_fetch_row($query);
-                        $query2 = mysql_query("select count(*) from incidencia where dni='$resultado[0]'");
+                        $query2 = mysql_query("select count(*) from incidencia where dni='$resultado[0]' and estado=1");
                         $resultado2 = mysql_fetch_row($query2);
                         ?>
 
@@ -75,16 +75,17 @@
                 mysql_select_db("incidencias", $link);
                 $result = mysql_query("select dni from usuario where correo='$correo'");
                 $row = mysql_fetch_row($result);
-                $result2 = mysql_query("select * from incidencia where dni='$row[0]'");
+                $result2 = mysql_query("select * from incidencia where dni='$row[0]' and estado=1");
         
               echo '<ul class="collection">';
                 
               while ($row2 = mysql_fetch_row($result2)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row2[5]' alt='' class='circle'>";
-                echo "<span class='title'>$row2[2]</span>";
-                echo "<p>$row2[3]</p>";
-                echo '<a href="#!"><i class="material-icons right">done</i></a>';
+                echo "<span class='title'>$row2[0] $row2[2]</span><br>";
+                echo "<span>$row2[3]</span><br>";
+                echo "<span>$row2[7]</span>";
+                echo '<a href="php/incidenciaTerminadaEmpleado.php"><i class="material-icons right">done</i></a>';
                 
              }
             echo '</ul>';
