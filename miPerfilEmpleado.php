@@ -17,45 +17,35 @@
         <!--Nav Bar-->
         <div class="navbar-fixed">
 
-            <ul id="dropdown1" class="dropdown-content">
-                <li><a href="administracion.html">Administracion</a></li>
-                <li class="divider"></li>
-                <li><a href="graficos.php">Gráficos</a></li>
-            </ul>
-
-            <ul id="dropdown2" class="dropdown-content">
-                <li><a href="administracion.html">Administracion</a></li>
-                <li><a href="graficos.php">Gráficos</a></li>
-            </ul>
-
             <nav>
                 <div class="nav-wrapper z-depth-5 yellow accent-2">
-                    <a href="#!" class="brand-logo"><img class="logo" src="imagenes/logo.png"></a>
+                    <a href="#!" class="brand-logo left"><img class="logo" src="imagenes/logo.png"></a>
 
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
                     <ul class="hide-on-med-and-down cabecera">
-                        <li><a href="indexAdmin.php">Planning</a></li>
-                        <li><a href="usuarios.php">Usuarios</a></li>
-                        <!-- Dropdown Trigger -->
-                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
-                        </li>
+                        
+                        
+                        <li><a href="indexEmpleado.php">Planning</a></li>
+                        <li><a href="asignaciones.php">Asignaciones</a></li>
+                        <li><a href="php/prestadoUsuario.php">En prestamo</a></li>
+
                     </ul>
 
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+                        <li><a href="miPerfilEmpleado.php"><i class="material-icons">perm_identity</i></a></li>
                         <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
                     </ul>
 
                 </div>
             </nav>
         </div>
-        <!--Side Nav-->
+
         <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
-            <li><a href="indexAdmin.php">Planning</a></li>
-            <li><a href="usuarios.php">Usuarios</a></li>
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Empresa<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="indexEmpleado.php">Planning</a></li>
+            <li><a href="asignaciones.php">Asignaciones</a></li>
+            <li><a href="php/prestadoUsuario.php">En prestamo</a></li>
+            <li><a href="miPerfilEmpleado.php"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
 

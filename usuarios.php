@@ -16,13 +16,13 @@
     <div class="navbar-fixed">
 
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="administracion.php">Administracion</a></li>
+            <li><a href="php/administracion.php">Administracion</a></li>
             <li class="divider"></li>
             <li><a href="graficos.php">Gráficos</a></li>
         </ul>
 
         <ul id="dropdown2" class="dropdown-content">
-            <li><a href="administracion.php">Administracion</a></li>
+            <li><a href="php/administracion.php">Administracion</a></li>
             <li><a href="graficos.php">Gráficos</a></li>
         </ul>
 
@@ -32,7 +32,7 @@
 
                 <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
-                <ul class="left hide-on-med-and-down cabecera">
+                <ul class="hide-on-med-and-down cabecera">
 
                     <li><a href="indexAdmin.php">Planning</a></li>
                     <li><a href="usuarios.php">Usuarios</a></li>

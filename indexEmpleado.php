@@ -23,7 +23,7 @@
 
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
-                    <ul class="left hide-on-med-and-down cabecera">
+                    <ul class="hide-on-med-and-down cabecera">
                         
                         <?php
                         session_start();
@@ -43,7 +43,7 @@
                     </ul>
 
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+                        <li><a href="miPerfilEmpleado.php"><i class="material-icons">perm_identity</i></a></li>
                         <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
                     </ul>
 
@@ -55,7 +55,7 @@
             <li><a href="indexEmpleado.php">Planning</a></li>
             <li><a href="asignaciones.php">Asignaciones</a></li>
             <li><a href="php/prestadoUsuario.php">En prestamo</a></li>
-            <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="miPerfilEmpleado.php"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
 
