@@ -90,8 +90,9 @@
             while ($row = mysql_fetch_row($result)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row[5]' alt='' class='circle'>";
-                echo "<span class='title'>$row[2]</span>";
-                echo "<p>$row[3]</p>";
+                echo "<span class='title'>$row[0] $row[2]</span>";
+                echo "<span>$row[3]</span><br>";
+                echo "<span>$row[7]</span>";
                 echo '<a href="#!"><i class="material-icons right">supervisor_account</i></a>';
                 echo '<a href="#!"><i class="material-icons right">delete</i></a>';
                 echo '<a href="#!"><i class="material-icons right">mode_edit</i></a>';

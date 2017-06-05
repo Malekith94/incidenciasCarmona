@@ -82,10 +82,10 @@
               while ($row2 = mysql_fetch_row($result2)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row2[5]' alt='' class='circle'>";
-                echo "<span class='title'>$row2[0] $row2[2]</span><br>";
+                echo "<span class='title'>$row2[0]</span> <span>$row2[2]</span><br>";
                 echo "<span>$row2[3]</span><br>";
                 echo "<span>$row2[7]</span>";
-                echo '<a href="php/incidenciaTerminadaEmpleado.php"><i class="material-icons right">done</i></a>';
+                echo "<a href='php/incidenciaTerminadaEmpleado.php?id=$row2[0]'><i class='material-icons right'>done</i></a>";
                 
              }
             echo '</ul>';
