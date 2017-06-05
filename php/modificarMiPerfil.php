@@ -17,7 +17,7 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 } 
 
-$modificar = "UPDATE usuario SET dni='$dni', pass='$pass', correo='$correo', nombre='$nom', apellidos='$apell', telefono='$tel', direccion='$dir', fecNac='$fechaN' Where correo='erpejime@gmail.com'";
+$modificar = "UPDATE usuario SET dni='$dni', pass='$pass', correo='$correo', nombre='$nom', apellidos='$apell', telefono='$tel', direccion='$dir', fecNac='$fechaN' Where correo='$correo'";
 
 if ($mysqli->query($modificar)) {
     echo '<script language="javascript"> alert("Se ha modificado la incidencia correctamente"); window.location="../miPerfil.php"; </script>';

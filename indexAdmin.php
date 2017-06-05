@@ -81,7 +81,7 @@
             
             while ($row = mysql_fetch_row($result)){
                 echo '<li class="collection-item avatar">';
-                echo '<i class="material-icons circle green">insert_chart</i>';
+                echo "<img src='$row[5]' alt='' class='circle'>";
                 echo "<span class='title'>$row[2]</span>";
                 echo "<p>$row[3]</p>";
                 echo '<a href="#!"><i class="material-icons right">supervisor_account</i></a>';

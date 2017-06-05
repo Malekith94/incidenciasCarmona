@@ -7,12 +7,12 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="css/materialize.min.css">
 
-    <link rel="stylesheet" href="css/indexEmpleado.css">
+    <link rel="stylesheet" href="css/indexAdmin.css">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body>
+<body class='black'>
     <div class="contenido">
 
         <div class="navbar-fixed">
@@ -32,7 +32,7 @@
                     </ul>
 
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="perfil.php"><i class="material-icons">perm_identity</i></a></li>
+                        <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
                         <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
                     </ul>
 
@@ -44,7 +44,7 @@
             <li><a href="indexEmpleado.php">Planning</a></li>
             <li><a href="asignaciones.php">Asignaciones</a></li>
             <li><a href="php/prestadoUsuario.php">En prestamo</a></li>
-            <li><a href="perfil.php"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
 
@@ -55,101 +55,29 @@
                 <h2>Incidencias</h2>
 
             </div>
+            
             <!-- colecciones -->
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="imagenes/favicon.jpg" alt="" class="circle">
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle green">insert_chart</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-            </ul>
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="imagenes/favicon.jpg" alt="" class="circle">
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle green">insert_chart</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-            </ul>
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="imagenes/favicon.jpg" alt="" class="circle">
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle green">insert_chart</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br> Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-            </ul>
-            <div class="col s12">
-
-
-            </div>
+            <?php
+                session_start();
+                $correo = $_SESSION['sesion'];
+                $link = mysql_connect("localhost", "root");
+                mysql_select_db("incidencias", $link);
+                $result = mysql_query("SELECT * FROM incidencia where dni = (select dni from usuario where correo='$correo')", $link);
+                $row = mysql_fetch_row($result);
+            
+            echo '<ul class="collection">';
+                
+                while ($row = mysql_fetch_row($result)){
+                echo '<li class="collection-item avatar">';
+                echo "<img src='$row[5]' alt='' class='circle'>";
+                echo "<span class='title'>$row[2]</span>";
+                echo "<p>$row[3]</p>";
+                echo '<a href="#!"><i class="material-icons right">done</i></a>';
+                
+            }
+            echo '</ul>';
+            ?>
+        
         </div>
 
 
@@ -237,8 +165,7 @@
     </footer>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/indexEmpleado.js"></script>
-
+    <script type="text/javascript" src="js/indexAdmin.js"></script>
 </body>
 
 </html>
