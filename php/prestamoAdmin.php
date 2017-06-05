@@ -36,15 +36,9 @@
 
                     <ul class="left hide-on-med-and-down cabecera">
                         
-                        <?php
-                        $link = mysql_connect("localhost", "root");
-                        mysql_select_db("incidencias", $link);
-                        $badge= "select count(*) as suma from incidencia where estado=0";
-                        $resultado =mysql_query($badge, $link);
-                        $row = mysql_fetch_row($resultado);
-                        ?>
+                        
 
-                        <li><a href="../indexAdmin.php">Planning <span class="new badge red"> <?php echo $row[0] ?> </span></a></li>
+                        <li><a href="../indexAdmin.php">Planning</a></li>
                         <li><a href="../usuarios.php">Usuarios</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
