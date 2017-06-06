@@ -79,6 +79,7 @@ CREATE TABLE usuarioInventario(
     idHerramienta int(11),
     dni varchar(9),
     fecha date NOT NULL,
+    cantidad int(11),
     PRIMARY KEY (idHerramienta, dni),
     CONSTRAINT FOREIGN KEY (idHerramienta) REFERENCES inventario(idHerramienta),
     CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni)
@@ -88,6 +89,7 @@ CREATE TABLE usuarioVehiculo(
     dni varchar(9),
     matricula varchar(7),
     fecha date NOT NULL,
+    cantidad int(11),
     PRIMARY KEY (dni, matricula),
     CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni),
     CONSTRAINT FOREIGN KEY (matricula) REFERENCES vehiculo(matricula)

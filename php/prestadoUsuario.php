@@ -66,14 +66,15 @@
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
-                            echo '<th>Dni</th>';
-                            echo '<th>Nombre</th>';
+                            echo '<th>idHerramienta</th>';
+                            echo '<th>dni</th>';
                             echo '<th>Fecha</th>';
+                            echo '<th>Cantidad</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row2 = mysql_fetch_row($result2)){ 
-                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><a href='eliminarHerramientaPrestada.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
+                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td><td><a href='eliminarHerramientaPrestada.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             
@@ -101,11 +102,12 @@
                             echo '<th>Dni</th>';
                             echo '<th>Matricula</th>';
                             echo '<th>Fecha</th>';
+                            echo '<th>Cantidad</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row2 = mysql_fetch_row($result2)){ 
-                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><a href='eliminarVehiculoPrestado.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
+                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td><td><a href='eliminarVehiculoPrestado.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             
