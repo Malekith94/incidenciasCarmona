@@ -101,6 +101,8 @@
                 echo "<a href='php/eliminarIncidenciaAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a>";
                 echo "<a href='php/modificarIncidenciaAdmin.php?idIncidencia=$row[0]'><i class='material-icons right'>mode_edit</i></a>";
                 
+                $incidenciaId = $row[0];
+                
             }
             echo '</ul>';
             ?>
@@ -126,7 +128,7 @@
                 echo "<span><b>Descripcion:</b> $row[3]</span><br>";
                 echo "<span><b>Direccion:</b> $row[7]</span>";
                 echo "<a href='php/terminarIncidenciaAdmin.php?id=$row[0]'><i class='material-icons right'>done</i></a>";
-                
+            
             }
             echo '</ul>';
             ?>
@@ -200,7 +202,7 @@
                         <div class="row">
                             <!--IdIncidencia-->
                             <div class="input-field col s12">
-                                <input id="labelId" name="idIncidencia" type="text" class="validate" value="<?php echo $row[0]; ?>">
+                                <input id="labelId" name="idIncidencia" type="text" class="validate" value="<?php echo $incidenciaId; ?>">
                                 <label for="labelId">Id incidencia</label>
                             </div>
                         </div>
@@ -212,15 +214,14 @@
                             <select id="comboProfesion" name="profesiones">
                                 <option>Seleccione una profesión...</option>
 						      	<?php 
+                                    
                                     mysql_query ("SET NAMES 'utf8'");
                                     $query=mysql_query("select idProfesion, nombre from profesion", $link) or
                                     die("Problemas en el select:".mysql_error());
                                     while($row1 = mysql_fetch_array($query))
                                     {
-                                    echo'<OPTION VALUE="'.$row1['idProfesion'].'">'.$row1['nombre'].'</OPTION>';
+                                    echo'<OPTION VALUE="'.$row1['idProfesion'].'">'.$row1['idProfesion'].' - '.$row1['nombre'].'</OPTION>';
                                         echo $row1['idProfesion'];
-                                        
-                                        $idProf = $row1['idProfesion'];
                                     }
                                 ?>
 						    	</select>
@@ -229,9 +230,9 @@
                             <div class="input-field col s6">
                             <select id="comboEmpleado" name="empleados">
                                 <option>Seleccione una profesión...</option>
-						      	<?php 
+						      	<?php ;
                                     mysql_query ("SET NAMES 'utf8'");
-                                    $query2=mysql_query("select * from usuario where idProfesion=$idProf", $link) or
+                                    $query2=mysql_query("select * from usuario where idProfesion=1", $link) or
                                     die("Problemas en el select:".mysql_error());
                                     while($row2 = mysql_fetch_array($query2))
                                     {
@@ -240,6 +241,7 @@
                                     }
                                 ?>
 						    	</select>
+                                
                         </div>
                         </div>
                                 
