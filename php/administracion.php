@@ -158,7 +158,7 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td> </img> <td><a href='#'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td> </img> <td><a href='modificarProfesion.php?idProf=$row[0]'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
                             <td><a href='eliminarProfesion.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td> </tr> \n "; 
                             } 
                             echo "</table>"; 

@@ -21,7 +21,7 @@ if ($mysqli->connect_error) {
 $modificar = "UPDATE vehiculo SET matricula='$matricula', idProfesion='$idProfesion', marca='$marca', modelo='$modelo', cantidad='$cant', foto='$destino' where matricula='$matricula'";
 
 if ($mysqli->query($modificar)) {
-    echo '<script language="javascript"> alert("Se ha modificado la herramienta correctamente"); window.location = "php/administracion.php"; </script>';
+    echo '<script language="javascript"> alert("Se ha modificado el vehiculo correctamente"); window.location = "php/administracion.php"; </script>';
     //header('location: indexAdmin.php');
 	
     //echo "New record created successfully";
