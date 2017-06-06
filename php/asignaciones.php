@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>Incidencias Carmona</title>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
 
-    <link rel="stylesheet" href="css/asignaciones.css">
+    <link rel="stylesheet" href="../css/asignaciones.css">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -20,20 +20,20 @@
 
             <nav>
                 <div class="nav-wrapper z-depth-5 yellow accent-2">
-                    <a href="#!" class="brand-logo"><img class="logo" src="imagenes/logo.png"></a>
+                    <a href="#!" class="brand-logo"><img class="logo" src="../imagenes/logo.png"></a>
 
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
                     <ul class="left hide-on-med-and-down cabecera">
 
-                        <li><a href="indexEmpleado.php">Planning</a></li>
+                        <li><a href="../indexEmpleado.php">Planning</a></li>
                         <li><a href="asignaciones.php">Asignaciones</a></li>
 
                     </ul>
 
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
-                        <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
+                        <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+                        <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
                     </ul>
 
                 </div>
@@ -41,10 +41,10 @@
         </div>
         
         <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
-            <li><a href="indexAdmin.php">Planning</a></li>
-            <li><a href="usuarios.php">Asignaciones</a></li>
-            <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
-            <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
+            <li><a href="../indexAdmin.php">Planning</a></li>
+            <li><a href="../usuarios.php">Asignaciones</a></li>
+            <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
 
         <div class="container incidencias">
@@ -71,7 +71,7 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='$row[3]' width='35px' height='35px'></img><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='../$row[3]' width='35px' height='35px'></img><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
@@ -105,7 +105,7 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='$row[5]' width='35px' height='35px'></img></td><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='../$row[5]' width='35px' height='35px'></img></td><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
@@ -144,9 +144,9 @@
                 </div>
             </div>
         </footer>
-    <script src="js/jquery-3.2.0.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/asignaciones.js"></script>
+    <script src="../js/jquery-3.2.0.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/asignaciones.js"></script>
 
 </body>
 
