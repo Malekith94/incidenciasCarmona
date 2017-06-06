@@ -69,8 +69,8 @@
             
             <!-- colecciones -->
             <?php
-                session_start();
-                $correo = $_SESSION['sesion'];
+                //session_start();
+                //$correo = $_SESSION['sesion'];
                 $link = mysql_connect("localhost", "root");
                 mysql_select_db("incidencias", $link);
                 $result = mysql_query("select dni from usuario where correo='$correo'");
@@ -82,9 +82,10 @@
               while ($row2 = mysql_fetch_row($result2)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row2[5]' alt='' class='circle'>";
-                echo "<span class='title'>$row2[0]</span> <span>$row2[2]</span><br>";
-                echo "<span>$row2[3]</span><br>";
-                echo "<span>$row2[7]</span>";
+                echo "<span class='title'><b>Incidencia nº:</b> $row2[0]</span><br>";
+                echo "<span><b>Problema:</b> $row2[2]</span><br>";
+                echo "<span><b>Descripcion:</b> $row2[3]</span><br>";
+                echo "<span><b>Direccion:</b> $row2[7]</span>";
                 echo "<a href='php/incidenciaTerminadaEmpleado.php?id=$row2[0]'><i class='material-icons right'>done</i></a>";
                 
              }

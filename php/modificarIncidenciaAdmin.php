@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>Incidencias Carmona</title>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
 
-    <link rel="stylesheet" href="css/miPerfil.css">
+    <link rel="stylesheet" href="../css/miPerfil.css">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -20,31 +20,31 @@
             <ul id="dropdown1" class="dropdown-content">
                 <li><a href="administracion.php">Administracion</a></li>
                 <li class="divider"></li>
-                <li><a href="graficos.php">Gráficos</a></li>
+                <li><a href="../graficos.php">Gráficos</a></li>
             </ul>
 
             <ul id="dropdown2" class="dropdown-content">
                 <li><a href="administracion.php">Administracion</a></li>
-                <li><a href="graficos.php">Gráficos</a></li>
+                <li><a href="../graficos.php">Gráficos</a></li>
             </ul>
 
             <nav>
                 <div class="nav-wrapper z-depth-5 yellow accent-2">
-                    <a href="#!" class="brand-logo"><img class="logo" src="imagenes/logo.png"></a>
+                    <a href="#!" class="brand-logo"><img class="logo" src="../imagenes/logo.png"></a>
 
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
                     <ul class="hide-on-med-and-down cabecera">
-                        <li><a href="indexAdmin.php">Planning</a></li>
-                        <li><a href="usuarios.php">Usuarios</a></li>
+                        <li><a href="../indexAdmin.php">Planning</a></li>
+                        <li><a href="../usuarios.php">Usuarios</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
                         </li>
                     </ul>
 
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
-                        <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
+                        <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+                        <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
                     </ul>
 
                 </div>
@@ -52,80 +52,57 @@
         </div>
         <!--Side Nav-->
         <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
-            <li><a href="indexAdmin.php">Planning</a></li>
-            <li><a href="usuarios.php">Usuarios</a></li>
+            <li><a href="../indexAdmin.php">Planning</a></li>
+            <li><a href="../usuarios.php">Usuarios</a></li>
             <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Empresa<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
-            <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
+            <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+            <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
         </ul>
 
         <!--Contenedor principal-->
         <div class="container incidencias">
 
-            <h2>Mi Perfil</h2>
+            <h2>Editar Incidencia</h2>
             <div class="row">
                 <div id="contForm">
                     <div class="container" id="contenedorForm">
                         <div class="row">
                             <!--Rellenar formulario con php-->
                             <?php
-                                    session_start();
-                                    $correo = $_SESSION['sesion'];
+                                    $idIncid = $_REQUEST['idIncidencia'];
                                     $link = mysql_connect("localhost", "root");
                                     mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM usuario where correo = '$correo'", $link);
+                                    $result = mysql_query("SELECT * FROM incidencia where idIncidencia = $idIncid", $link);
                                     $row = mysql_fetch_row($result);
-                            ?>    
+                            ?>
                                 <!--Formulario-->
-                                <form class="col s12" method="post" action="php/modificarMiPerfil.php"  enctype="multipart/form-data">
+                                <form class="col s12" method="post" action="modificarIncidencia.php" enctype="multipart/form-data">
                                     <div class="row espacio">
-                                        <!--Dni-->
-                                        <div class="input-field col s6">
-                                            <input id="labelDni" name="dni" type="text" class="validate" value="<?php echo $row[0]; ?>">
-                                            <label for="labelDni">Dni</label>
+                                        <!--Id Incidencia-->
+                                        <div class="input-field col s3">
+                                            <input  id="labelId" name="idIncidenci" type="text" class="validate" value="<?php echo $row[0]; ?>">
+                                            <label for="labelId">Id Incidencia</label>
                                         </div>
 
-                                        <!--Fecha nacimiento-->
-                                        <div class="input-field col s6">
-                                            <input id="labelFecha" type="date" name="fecha" class="datepicker" value="<?php echo $row[10]; ?>">
-                                            <label for="labelFecha">Fecha</label>
+                                        <!--Nombre incidencia-->
+                                        <div class="input-field col s9">
+                                            <input id="labelNombre" name="nomIncid" type="text" class="validate" value="<?php echo $row[2]; ?>">
+                                            <label for="labelNombre">Nombre</label>
                                         </div>
 
                                     </div>
                                     <div class="row ">
-                                        <!--Correo-->
-                                        <div class="input-field col s6">
-                                            <input id="correo" name="correo" type="text" class="validate" value="<?php echo $row[4]; ?>">
-                                            <label for="correo">Correo</label>
-                                        </div>
-                                        <!--Contraseña-->
-                                        <div class="input-field col s6">
-                                            <input id="password" name="pass" type="password" class="validate" value="<?php echo $row[3]; ?>">
-                                            <label for="password">Contraseña</label>
+                                        <!--Localizacion-->
+                                        <div class="input-field col s12">
+                                            <input id="lblLocal" name="localIncid" type="text" class="validate" value="<?php echo $row[7]; ?>">
+                                            <label for="lblLocal">Localizacion</label>
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <!--Nombre-->
-                                        <div class="input-field col s6">
-                                            <input id="nombre" name="nombre" type="text" class="validate" value="<?php echo $row[5]; ?>">
-                                            <label for="nombre">Nombre</label>
-                                        </div>
-                                        <!--Apellidos-->
-                                        <div class="input-field col s6">
-                                            <input id="apellidos" name="apellidos" type="text" class="validate" value="<?php echo $row[6]; ?>">
-                                            <label for="apellidos">Apellidos</label>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <!--Telefono-->
-                                        <div class="input-field col s6">
-                                            <input id="telefono" name="telefono" type="text" class="validate" value="<?php echo $row[8]; ?>">
-                                            <label for="telefono">Telefono</label>
-                                        </div>
-                                        <!--Direccion-->
-                                        <div class="input-field col s6">
-                                            <input id="direccion" name="direccion" type="text" class="validate" value="<?php echo $row[9]; ?>">
-                                            <label for="direccion">Direccion</label>
+                                        <!--Descripcion-->
+                                        <div class="input-field col s12">
+                                            <input id="lblDescrip" name="descIncid" type="text" class="materialize-textarea" value="<?php echo $row[3]; ?>">
+                                            <label for="lblDescrip">Descripcion</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -136,7 +113,7 @@
                                                 <input type="file" name="foto" multiple>
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="<?php echo $row[7]; ?>">
+                                                <input class="file-path validate" type="text" placeholder="<?php echo $row[5]; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -184,9 +161,9 @@
         </div>
     </footer>
 
-    <script src="js/jquery-3.2.0.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/miPerfil.js"></script>
+    <script src="../js/jquery-3.2.0.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/miPerfil.js"></script>
 
 </body>
 

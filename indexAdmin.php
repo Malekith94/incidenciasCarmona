@@ -15,6 +15,7 @@
 <body class="black">
     <div class="contenido">
 
+        <!--Menu navbar-->
         <div class="navbar-fixed">
 
             <ul id="dropdown1" class="dropdown-content">
@@ -35,7 +36,7 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse btn btn-floating pulse"><i class="material-icons black-text">menu</i></a>
 
                     <ul class="left hide-on-med-and-down cabecera">
-                        
+
                         <?php
                         $link = mysql_connect("localhost", "root");
                         mysql_select_db("incidencias", $link);
@@ -44,13 +45,13 @@
                         $row = mysql_fetch_row($resultado);
                         ?>
 
-                        <li><a href="indexAdmin.php">Planning <span class="new badge red"> <?php echo $row[0] ?> </span></a></li>
-                        <li><a href="usuarios.php">Usuarios</a></li>
-                        <li><a href="php/prestamoAdmin.php">En prestamo</a></li>
-                        <!-- Dropdown Trigger -->
-                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
+                            <li><a href="indexAdmin.php">Planning <span class="new badge red"> <?php echo $row[0] ?> </span></a></li>
+                            <li><a href="usuarios.php">Usuarios</a></li>
+                            <li><a href="php/prestamoAdmin.php">En prestamo</a></li>
+                            <!-- Dropdown Trigger -->
+                            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
 
-                        </li>
+                            </li>
 
                     </ul>
 
@@ -92,24 +93,25 @@
             while ($row = mysql_fetch_row($result)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row[5]' alt='' class='circle'>";
-                echo "<span class='title'>$row[0]</span> <span>$row[2]</span><br>";
-                echo "<span>$row[3]</span><br>";
-                echo "<span>$row[7]</span>";
+                echo "<span class='title'><b>Incidencia nº:</b> $row[0]</span><br>";
+                echo "<span><b>Problema:</b> $row[2]</span><br>";
+                echo "<span><b>Descripcion:</b> $row[3]</span><br>";
+                echo "<span><b>Direccion:</b> $row[7]</span>";
                 echo '<a href="#!"><i class="material-icons right">supervisor_account</i></a>';
                 echo "<a href='php/eliminarIncidenciaAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a>";
-                echo '<a href="#!"><i class="material-icons right">mode_edit</i></a>';
+                echo "<a href='php/modificarIncidenciaAdmin.php?idIncidencia=$row[0]'><i class='material-icons right'>mode_edit</i></a>";
                 
             }
             echo '</ul>';
             ?>
-            
-            <div class="row">
 
-                <h2>Incidencias resueltas</h2>
+                <div class="row">
 
-            </div>
-            
-            <?php
+                    <h2>Incidencias resueltas</h2>
+
+                </div>
+
+                <?php
             $link = mysql_connect("localhost", "root");
             mysql_select_db("incidencias", $link);
             $result = mysql_query("SELECT * FROM incidencia where estado=2", $link);
@@ -119,10 +121,10 @@
             while ($row = mysql_fetch_row($result)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row[5]' alt='' class='circle'>";
-                echo "<span class='title'>$row[0]</span> <span>$row[2]</span><br>";
-                echo "<span>$row[1]</span><br>";
-                echo "<span>$row[3]</span><br>";
-                echo "<span>$row[7]</span>";
+                echo "<span class='title'><b>Incidencia nº:</b> $row[0]</span><br>";
+                echo "<span><b>Empleado:</b> $row[1]</span><br>";
+                echo "<span><b>Descripcion:</b> $row[3]</span><br>";
+                echo "<span><b>Direccion:</b> $row[7]</span>";
                 echo "<a href='php/terminarIncidenciaAdmin.php?id=$row[0]'><i class='material-icons right'>done</i></a>";
                 
             }
@@ -134,8 +136,6 @@
 
         <div id="floating" class="fixed-action-btn">
             <a class="btn-floating btn-large waves-effect waves-light red" href="#modal1"><i class="material-icons">add</i></a>
-
-
         </div>
 
         <!--Ventana modal float button rellenar incidencia-->
@@ -191,7 +191,7 @@
 
 
     </div>
-    
+
     <br>
     <br>
     <br>
@@ -221,11 +221,11 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/indexAdmin.js"></script>
-    
+
 </body>
 
 </html>
