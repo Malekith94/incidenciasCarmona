@@ -87,7 +87,7 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='$row[3]' width='35px' height='35px'></img> <td><a href='#'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='../$row[3]' width='35px' height='35px'></img> <td><a href='modificarHerramienta.php?idHerra=$row[0]'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
                             <td><a href='eliminarHerramienta.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td>
                             </tr> \n "; 
                             } 
@@ -124,8 +124,8 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='$row[5]' width='35px' height='35px'></img>
-                            </img> <td><a href='#'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='../$row[5]' width='35px' height='35px'></img>
+                            </img> <td><a href='modificarVehiculo.php?idVehi=$row[0]'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
                             <td><a href='eliminarVehiculo.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td>
                             </tr> \n "; 
                             } 
