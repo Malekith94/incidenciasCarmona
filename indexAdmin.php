@@ -77,7 +77,7 @@
 
             <div class="row">
 
-                <h2>Incidencias</h2>
+                <h2>Incidencias sin resolver</h2>
 
             </div>
             <!-- colecciones -->
@@ -96,8 +96,34 @@
                 echo "<span>$row[3]</span><br>";
                 echo "<span>$row[7]</span>";
                 echo '<a href="#!"><i class="material-icons right">supervisor_account</i></a>';
-                echo '<a href="#!"><i class="material-icons right">delete</i></a>';
+                echo "<a href='php/eliminarIncidenciaAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a>";
                 echo '<a href="#!"><i class="material-icons right">mode_edit</i></a>';
+                
+            }
+            echo '</ul>';
+            ?>
+            
+            <div class="row">
+
+                <h2>Incidencias resueltas</h2>
+
+            </div>
+            
+            <?php
+            $link = mysql_connect("localhost", "root");
+            mysql_select_db("incidencias", $link);
+            $result = mysql_query("SELECT * FROM incidencia where estado=2", $link);
+            
+            echo '<ul class="collection">';
+            
+            while ($row = mysql_fetch_row($result)){
+                echo '<li class="collection-item avatar">';
+                echo "<img src='$row[5]' alt='' class='circle'>";
+                echo "<span class='title'>$row[0]</span> <span>$row[2]</span><br>";
+                echo "<span>$row[1]</span><br>";
+                echo "<span>$row[3]</span><br>";
+                echo "<span>$row[7]</span>";
+                echo "<a href='php/terminarIncidenciaAdmin.php?id=$row[0]'><i class='material-icons right'>done</i></a>";
                 
             }
             echo '</ul>';
