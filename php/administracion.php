@@ -192,7 +192,7 @@
                 </div>
                 <!--Formulario registrar herramientas-->
                 <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="insertarHerramienta.php" method="POST" enctype="multipart/form-data">
+                    <form class="col s12" action="../insertarHerramienta.php" method="POST" enctype="multipart/form-data">
                     
                         <div class="row">
 
@@ -240,7 +240,7 @@
                 </div>
                 <!--Formulario registrar vehiculos-->
                 <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="insertarVehiculo.php" method="POST" enctype="multipart/form-data">
+                    <form class="col s12" action="../insertarVehiculo.php" method="POST" enctype="multipart/form-data">
                     
                         <div class="row">
 

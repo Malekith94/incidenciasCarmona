@@ -34,6 +34,9 @@
         header("location:indexAdmin.php");
     }else if ($filas > 0 and $prueba["tipo"] == 1){
         header("location:indexEmpleado.php");
+        
+    }else if ($filas > 0 and $prueba["tipo"] == 2){
+        header("location:indexSuperAdmin.php");
 		
     }else{
         header("location:login.html");

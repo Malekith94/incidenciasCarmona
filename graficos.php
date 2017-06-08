@@ -138,7 +138,7 @@ $(function () {
         series: [{
             name: 'Incidencias',
             <?php
-            $suma = "SELECT COUNT(i.nombre) AS suma FROM incidencia i, usuario u, profesion p WHERE i.dni=u.dni AND u.idProfesion=p.idProfesion AND  DAYOFYEAR(i.fechaSuceso) >= DAYOFYEAR(CURDATE()) -30 AND i.fechaSuceso <= CURDATE() GROUP BY p.nombre ORDER BY p.nombre";
+            $suma = "SELECT COUNT(i.nombre) AS suma FROM historial i, usuario u, profesion p WHERE i.dni=u.dni AND u.idProfesion=p.idProfesion AND  DAYOFYEAR(i.fechaSuceso) >= DAYOFYEAR(CURDATE()) -30 AND i.fechaSuceso <= CURDATE() GROUP BY p.nombre ORDER BY p.nombre";
             $resSuma = $mysqli->query($suma);
             $arraysumas = array();
             while($sumares=mysqli_fetch_array($resSuma)){
@@ -185,7 +185,7 @@ $(function () {
             colorByPoint: true,
             data: [
                 <?php
-                $suma = "SELECT COUNT(i.nombre) AS suma, p.nombre as nombreProf FROM incidencia i, usuario u, profesion p WHERE i.dni=u.dni AND u.idProfesion=p.idProfesion AND  DAYOFYEAR(i.fechaSuceso) >= DAYOFYEAR(CURDATE()) -30 AND i.fechaSuceso <= CURDATE() GROUP BY p.nombre ORDER BY p.nombre";
+                $suma = "SELECT COUNT(i.nombre) AS suma, p.nombre as nombreProf FROM historial i, usuario u, profesion p WHERE i.dni=u.dni AND u.idProfesion=p.idProfesion AND  DAYOFYEAR(i.fechaSuceso) >= DAYOFYEAR(CURDATE()) -30 AND i.fechaSuceso <= CURDATE() GROUP BY p.nombre ORDER BY p.nombre";
             
                 $res = $mysqli->query($suma);
                 $filas = mysqli_num_rows($res);

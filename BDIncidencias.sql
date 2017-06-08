@@ -52,6 +52,22 @@ CREATE TABLE profesion(
     PRIMARY KEY (idIncidencia),
     CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni)
  );
+ 
+ CREATE TABLE historial(
+    idHistorial int(11) NOT NULL AUTO_INCREMENT,
+    dni varchar(9),
+    idIncidencia int (11),
+    nombre varchar(100) NOT NULL,
+    descripcion varchar(150) NOT NULL,
+    estado int(1),
+    logo varchar(200),
+    localizacion varchar(200) NOT NULL,
+    fechaSuceso date NOT NULL,
+    fechaResolucion date,
+    PRIMARY KEY (idHistorial),
+    CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni),
+    CONSTRAINT FOREIGN KEY (idIncidencia) REFERENCES incidencia(idIncidencia)
+ );
 
  CREATE TABLE vehiculo(
     matricula varchar(7) NOT NULL,

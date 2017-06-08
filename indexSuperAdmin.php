@@ -62,6 +62,26 @@
 
     <div class="container incidencias">
 
+        <!--Collapsible administradores-->
+        <div class="espacio">
+            <h3>Administradores</h3>
+            <?php   
+                    //include('conexion.php');
+                    $link=mysql_connect("localhost", "root", "");
+                    mysql_select_db("incidencias", $link);
+                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=0", $link);
+
+                    echo '<ul class="collapsible popout" data-collapsible="accordion">';
+                    while ($row = mysql_fetch_row($result)){
+                        echo '<li>';
+                        $dniAdmin=$row[0];
+                        echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='modificarPerfilUsuario.php?id=$row[0]'><i class='material-icons right'>mode_edit</i></a></div>";
+                        echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
+                        echo '</li>';
+                    }
+                    echo '</ul>';
+                ?>
+        </div>
         <!--Collapsible empleados-->
         <div class="espacio">
 
@@ -83,7 +103,6 @@
                     echo '</ul>';
                 ?>
         </div>
-        
         <!--Collapsible ciudadanos-->
         <div class="espacio espacioabajo">
 

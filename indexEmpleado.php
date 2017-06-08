@@ -85,7 +85,8 @@
                 echo "<span class='title'><b>Incidencia nº:</b> $row2[0]</span><br>";
                 echo "<span><b>Problema:</b> $row2[2]</span><br>";
                 echo "<span><b>Descripcion:</b> $row2[3]</span><br>";
-                echo "<span><b>Direccion:</b> $row2[7]</span>";
+                echo "<span><b>Direccion:</b> $row2[7]</span><br>";
+                echo "<span><b>Fecha del suceso:</b> $row2[8]</span>";
                 echo "<a href='php/incidenciaTerminadaEmpleado.php?id=$row2[0]'><i class='material-icons right'>done</i></a>";
                 
              }
