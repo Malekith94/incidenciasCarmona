@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+    $link = mysql_connect("localhost", "root");
+    mysql_select_db("incidencias", $link);
+?>
 <html>
 
 <head>
@@ -48,7 +52,6 @@
                             <li><a href="indexAdmin.php">Planning <span class="new badge red"> <?php echo $row[0] ?> </span></a></li>
                             <li><a href="usuarios.php">Usuarios</a></li>
                             <li><a href="php/prestamoAdmin.php">En prestamo</a></li>
-                            <li><a href="historial.php">Historial</a></li>
                             <!-- Dropdown Trigger -->
                             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
 
@@ -69,7 +72,6 @@
             <li><a href="indexAdmin.php">Planning</a></li>
             <li><a href="usuarios.php">Usuarios</a></li>
             <li><a href="php/prestamoAdmin.php">En prestamo</a></li>
-            <li><a href="historial.php">Historial</a></li>
             <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Empresa<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
@@ -86,8 +88,8 @@
             <!-- colecciones -->
 
             <?php
-            $link = mysql_connect("localhost", "root");
-            mysql_select_db("incidencias", $link);
+            //$link = mysql_connect("localhost", "root");
+            //mysql_select_db("incidencias", $link);
             $result = mysql_query("SELECT * FROM incidencia where estado=0", $link);
             
             echo '<ul class="collection">';
@@ -99,38 +101,12 @@
                 echo "<span><b>Problema:</b> $row[2]</span><br>";
                 echo "<span><b>Descripcion:</b> $row[3]</span><br>";
                 echo "<span><b>Direccion:</b> $row[7]</span>";
-                echo '<a href="#modal2"><i class="material-icons right">supervisor_account</i></a>';
+                echo "<a href='php/asignarIncidencia.php?idIncidencia=$row[0]'><i class='material-icons right'>supervisor_account</i></a>";
                 echo "<a href='php/eliminarIncidenciaAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a>";
                 echo "<a href='php/modificarIncidenciaAdmin.php?idIncidencia=$row[0]'><i class='material-icons right'>mode_edit</i></a>";
                 
                 $incidenciaId = $row[0];
                 
-            }
-            echo '</ul>';
-            ?>
-
-                <div class="row">
-
-                    <h2>Incidencias resueltas</h2>
-
-                </div>
-
-                <?php
-            $link = mysql_connect("localhost", "root");
-            mysql_select_db("incidencias", $link);
-            $result = mysql_query("SELECT * FROM incidencia where estado=2", $link);
-            
-            echo '<ul class="collection">';
-            
-            while ($row = mysql_fetch_row($result)){
-                echo '<li class="collection-item avatar">';
-                echo "<img src='$row[5]' alt='' class='circle'>";
-                echo "<span class='title'><b>Incidencia nº:</b> $row[0]</span><br>";
-                echo "<span><b>Empleado:</b> $row[1]</span><br>";
-                echo "<span><b>Descripcion:</b> $row[3]</span><br>";
-                echo "<span><b>Direccion:</b> $row[7]</span>";
-                echo "<a href='php/terminarIncidenciaAdmin.php?id=$row[0]'><i class='material-icons right'>done</i></a>";
-            
             }
             echo '</ul>';
             ?>
@@ -190,77 +166,6 @@
             </div>
 
         </div>
-        
-        <!--Ventana modal float button rellenar incidencia-->
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <div class="container row center-align">
-                    <i class="large material-icons">report_problem</i>
-                    <h4 align="center">Registrar Incidencia</h4>
-                </div>
-                <!--Formulario registrar incidencia-->
-                <div id="nuevaIncidencia" class="row">
-                    <form class="col s12" action="php/asignarEmpleado.php" method="POST" enctype="multipart/form-data">
-                        <div class="row">
-                            <!--IdIncidencia-->
-                            <div class="input-field col s12">
-                                <input id="labelId" name="idIncidencia" type="text" class="validate" value="<?php echo $incidenciaId; ?>">
-                                <label for="labelId">Id incidencia</label>
-                            </div>
-                        </div>
-                        
-                            
-                            <!--Profesiones-->
-                        <div class="row">
-                            <div class="input-field col s6">
-                            <select id="comboProfesion" name="profesiones">
-                                <option>Seleccione una profesión...</option>
-						      	<?php 
-                                    
-                                    mysql_query ("SET NAMES 'utf8'");
-                                    $query=mysql_query("select idProfesion, nombre from profesion", $link) or
-                                    die("Problemas en el select:".mysql_error());
-                                    while($row1 = mysql_fetch_array($query))
-                                    {
-                                    echo'<OPTION VALUE="'.$row1['idProfesion'].'">'.$row1['idProfesion'].' - '.$row1['nombre'].'</OPTION>';
-                                        echo $row1['idProfesion'];
-                                    }
-                                ?>
-						    	</select>
-                            </div>
-                            <!--Empleados -->
-                            <div class="input-field col s6">
-                            <select id="comboEmpleado" name="empleados">
-                                <option>Seleccione una profesión...</option>
-						      	<?php ;
-                                    mysql_query ("SET NAMES 'utf8'");
-                                    $query2=mysql_query("select * from usuario where idProfesion=1", $link) or
-                                    die("Problemas en el select:".mysql_error());
-                                    while($row2 = mysql_fetch_array($query2))
-                                    {
-                                    echo'<OPTION VALUE="'.$row2['dni'].'"> '.$row2['nombre'].' '.$row2['apellidos'].' </OPTION>';
-                                        echo $row2['dni'];
-                                    }
-                                ?>
-						    	</select>
-                                
-                        </div>
-                        </div>
-                                
-                        <div class="modal-footer">
-                            <!--<a href="#!" type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>-->
-                            <button class="btn waves-effect waves-light right submit" type="submit" name="action">Añadir <i class="tiny material-icons">send</i></button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-        </div>
-
-                
-
 
     </div>
 

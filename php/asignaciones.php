@@ -71,10 +71,10 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='../$row[3]' width='35px' height='35px'></img><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='../$row[3]' width='35px' height='35px'></img><td><INPUT name='cantHerra' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
-                            echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
+                            echo '<a href="asignarHerramienta.php" class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
                             ?> 
 
 
@@ -105,10 +105,10 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='../$row[5]' width='35px' height='35px'></img></td><td><INPUT style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='../$row[5]' width='35px' height='35px'></img></td><td><INPUT name='cantVehi' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
-                            echo '<a class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
+                            echo '<a href="asignarVehiculo.php" class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
                             ?> 
 
                 </div>
