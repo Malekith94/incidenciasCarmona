@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <?php
+
+error_reporting(0);
+ini_set('display_errors', 0);
+
     $link = mysql_connect("localhost", "root");
     mysql_select_db("incidencias", $link);
 
     
     $incidenciaId = $_SESSION['incidenciaId2']=$_REQUEST['idIncidencia'];
+
     $prof=$_SESSION['prof2']=$_REQUEST['profesiones'];
     $emple=$_SESSION['emple2']=$_REQUEST['empleados'];
 
@@ -105,10 +110,9 @@
             <div id="contForm">
                 <div class="container" id="contenedorForm">
                 <div id="nuevaIncidencia" class="row">
+                    <form name="formularioProf">
                         
-                            <!--Profesiones-->
-                    
-                        <form name="formularioProf" action="asignarIncidenciaEmpleado.php">
+                            <!--Profesiones-->                  
                             <div class="row">
                                 
                             <!--IdIncidencia-->
@@ -117,14 +121,15 @@
                                 <label for="labelId">Id incidencia</label>
                             </div>
                         </div>
+                            
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <select id="comboProfesion" name="profesiones" placeholder="Seleccione una profesión..." onchange="this.form.submit()">
+                                    <select id="comboProfesion" name="profesiones" placeholder="seleccione una profesion" onchange="this.form.submit()">
                                     <option></option>
                                         <?php 
                                             while($row1 = mysql_fetch_array($resProf))
                                             {
-                                            echo'<OPTION VALUE="'.$row1['idProfesion'].'">'.$row1['idProfesion'].'</OPTION>';
+                                            echo'<OPTION VALUE="'.$row1['idProfesion'].'">'.$row1['idProfesion'].' - '.$row1['nombre'].'</OPTION>';
                                                 //echo $row1['idProfesion'];
                                                 // - '.$row1['nombre'].'
                                             }
@@ -136,29 +141,31 @@
                                 <!--Empleados -->
                                 <div class="input-field col s6">
                                     <select id="comboEmpleado" name="empleados">
-                                        <option>Seleccione una profesión...</option>
+                                        <option>Seleccione un empleado...</option>
                                         <?php 
                                             while($row2 = mysql_fetch_array($resEmple))
                                             {
-                                            echo'<OPTION VALUE="'.$row2['dni'].'"> '.$row2['nombre'].' '.$row2['apellidos'].' </OPTION>';
+                                            echo'<OPTION VALUE="'.$row2['dni'].'">'.$row2['dni'].' - '.$row2['nombre'].' '.$row2['apellidos'].' </OPTION>';
                                                 echo $row2['dni'];
+                                                $test= $row2['dni'];
+                                                $_SESSION['sesion2'] = $test;
                                             }
                                         ?>
                                     </select>
 
                                 </div>
-                                <div class="row">
-                                        <div class="modal-footer">
-                                            <!--<a href="#!" type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>-->
-                                            <button class="waves-effect waves-light btn right" type="submit" name="action"><i class="material-icons right">send</i>confirmar</button>
-                                        </div>
-                                    </div>
+                                
                                 
                             </div>
                         <!--</form>-->        
                         
                     </form>
+                    
+                                    <div class="row">
+                                        
+                                          <?php echo "<a href='asignarIncidenciaEmpleado.php?idInci=$incidenciaId'><i class='material-icons right'>send</i></a>"; ?>
+                                        
+                                    </div>
                 </div>
 
             </div>
