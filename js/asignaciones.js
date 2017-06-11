@@ -19,3 +19,15 @@ $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
   });
+
+function envio(){
+document.forms["miform"].submit();
+}
+
+function myFunction() {
+    var person = prompt("Introduzca una cantidad", "0");
+    if (person != null) {
+        document.getElementById("demo").innerHTML =
+        "Hello " + person + "! How are you today?";
+    }
+}

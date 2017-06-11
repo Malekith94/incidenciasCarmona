@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html>
+    
+        <?php
+            error_reporting(0);
+            ini_set('display_errors', 0);
+
+            session_start();
+            $correo = $_SESSION['sesion'];
+            $link = mysql_connect("localhost", "root");
+            mysql_select_db("incidencias", $link);
+            $result = mysql_query("SELECT * FROM usuario where correo = '$correo'", $link);
+            $row = mysql_fetch_row($result);
+            $result2 = mysql_query("SELECT * FROM inventario", $link); 
+            $cantidadHerramienta=$_SESSION['cantidadHerra']=$_REQUEST['cantHerra'];
+        ?>    
 
 <head>
     <meta charset="utf-8">
@@ -10,8 +24,15 @@
     <link rel="stylesheet" href="../css/asignaciones.css">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 </head>
-
+    
+    <script>
+        $(document).ready(function){
+            var person = prompt('Introduzca una cantidad', '0'); if (person != null) {document.getElementById('can').innerHTML =  person ;};
+        }
+    </script>
 <body>
     <div class="contenido">
        
@@ -56,9 +77,8 @@
             
                 <div class="white contenedorTabla">                                    
                       <?php 
-                            $link = mysql_connect("localhost", "root"); 
-                            mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT * FROM inventario", $link); 
+                            /*$link2 = mysql_connect("localhost", "root"); 
+                            mysql_select_db("incidencias", $link2);*/ 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -66,15 +86,19 @@
                             echo '<th>Nombre</th>';
                             echo '<th>Cantidad</th>';
                             echo '<th>Foto</th>';
+                            echo '<th>Cantidad a coger</th>';
                             echo '<th>Coger</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='../$row[3]' width='35px' height='35px'></img><td><INPUT name='cantHerra' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            while ($row2 = mysql_fetch_row($result2)){
+                            echo "<script text='javascript'> function myFunction() {var person = prompt('Introduzca una cantidad', '0'); if (person != null) {document.getElementById('can').innerHTML =  person ;}} </script>";
+                            $variablePHP = "<script> document.write(person) </script>";
+                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><img src='../$row2[3]' width='35px' height='35px'></img><td id='can'>
+                            <INPUT name='cantHerra' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><a href='asignarHerramienta.php?dniEmp=$row[0]&idHerra=$row2[0]&canti=$variablePHP' onclick='myFunction()'><i class='material-icons'>thumb_up</i></a></td></tr> \n "; 
+                        
                             } 
                             echo "</table> \n"; 
-                            echo '<a href="asignarHerramienta.php" class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
                             ?> 
 
 
@@ -100,15 +124,15 @@
                             echo '<th>Modelo</th>';
                             echo '<th>Cantidad</th>';
                             echo '<th>Foto</th>';
+                            echo '<th>Cantidad</th>';
                             echo '<th>Coger</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='../$row[5]' width='35px' height='35px'></img></td><td><INPUT name='cantVehi' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td></tr> \n "; 
+                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='../$row[5]' width='35px' height='35px'></img></td><td><INPUT name='cantVehi' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><a href='asignarHerramienta.php?dniEmp=$row[0]'><i class='material-icons'>thumb_up</i></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
-                            echo '<a href="asignarVehiculo.php" class="right waves-effect waves-light btn"><i class="material-icons right">send</i>ACEPTAR</a>';
                             ?> 
 
                 </div>
