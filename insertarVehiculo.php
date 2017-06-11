@@ -1,6 +1,8 @@
 <?php
 
 include("conexion.php");
+error_reporting(0);
+ini_set('display_errors', 0);
 
 $mat = $_POST["matricula"];
 $profesion = $_POST["profesiones"];
@@ -17,7 +19,7 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 } 
 
-$insertar = "INSERT INTO vehiculo (matricula, idProfesion, marca, modelo, cantidad, foto) VALUES ('$mat', '$profesion', '$mar', '$mod', '$cant', '$destino')";
+$insertar = "INSERT INTO vehiculo (matricula, idProfesion, marca, modelo, cantidad, logo) VALUES ('$mat', '$profesion', '$mar', '$mod', '$cant', '$destino')";
 
 if ($mysqli->query($insertar)) {
     echo '<html><body><script language="javascript"> alert("Se ha insertado el vehiculo correctamente"); window.location="php/administracion.php"; </script> </body></html>';
@@ -27,8 +29,8 @@ if ($mysqli->query($insertar)) {
     //echo '<p> nombre es: '.$nom.'</p>';
 } else {
     
-echo "Error: " . $insertar . "<br>" . $mysqli->error;
-echo '<p>La matricula es: '.$mat.'</p>';
+/*echo "Error: " . $insertar . "<br>" . $mysqli->error;
+echo '<p>La matricula es: '.$mat.'</p>';*/
 }
 
 $mysqli->close();

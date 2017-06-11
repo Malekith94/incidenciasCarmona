@@ -1,6 +1,8 @@
 <?php
 
 include("conexion.php");
+error_reporting(0);
+ini_set('display_errors', 0);
 
 $nom = $_POST["nombre"];
 $cant = $_POST["cantidad"];
@@ -22,8 +24,8 @@ if ($mysqli->query($insertar)) {
     //echo "New record created successfully";
     //echo '<p> nombre es: '.$nom.'</p>';
 } else {
-    echo "Error: " . $insertar . "<br>" . $mysqli->error;
-    echo '<p> nombre es: '.$nom.'</p>';
+/*    echo "Error: " . $insertar . "<br>" . $mysqli->error;
+    echo '<p> nombre es: '.$nom.'</p>';*/
 }
 
 $mysqli->close();

@@ -1,7 +1,8 @@
 <?php
 
 include("conexion.php");
-
+error_reporting(0);
+ini_set('display_errors', 0);
 
 $matricula = $_POST["matricula"];
 $idProfesion = $_POST["idProf"];
@@ -18,7 +19,7 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 } 
 
-$modificar = "UPDATE vehiculo SET matricula='$matricula', idProfesion='$idProfesion', marca='$marca', modelo='$modelo', cantidad='$cant', foto='$destino' where matricula='$matricula'";
+$modificar = "UPDATE vehiculo SET matricula='$matricula', idProfesion='$idProfesion', marca='$marca', modelo='$modelo', cantidad='$cant', logo='$destino' where matricula='$matricula'";
 
 if ($mysqli->query($modificar)) {
     echo '<script language="javascript"> alert("Se ha modificado el vehiculo correctamente"); window.location = "php/administracion.php"; </script>';
@@ -27,8 +28,8 @@ if ($mysqli->query($modificar)) {
     //echo "New record created successfully";
     //echo '<p> nombre es: '.$nom.'</p>';
 } else {
-    echo "Error: " . $modificar . "<br>" . $mysqli->error;
-    echo '<p> nombre es: '.$nom.'</p>';
+/*    echo "Error: " . $modificar . "<br>" . $mysqli->error;
+    echo '<p> nombre es: '.$nom.'</p>';*/
 }
 
 $mysqli->close();
