@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+            /*error_reporting(0);
+            ini_set('display_errors', 0);*/
+            $link = mysql_connect("localhost", "root");
+            mysql_select_db("incidencias", $link);
+       
+            
+        ?>
 <head>
     <meta charset="UTF-8">
     <title>Incidencias Carmona</title>
@@ -33,7 +40,7 @@
                 </ul>
 
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+                    <li><a href="modificarPerfilSA.php"><i class="material-icons">perm_identity</i></a></li>
                     <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
                 </ul>
 
@@ -43,7 +50,7 @@
 
     <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
         <li><a href="indexSuperAdmin.php">Usuarios</a></li>
-        <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
+        <li><a href="modificarPerfilSA.php"><i class="material-icons">perm_identity</i></a></li>
         <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
     </ul>
 
@@ -54,15 +61,14 @@
             <h3>Administradores</h3>
             <?php   
                     //include('conexion.php');
-                    $link=mysql_connect("localhost", "root", "");
-                    mysql_select_db("incidencias", $link);
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=1", $link);
+
+                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=0", $link);
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
                     while ($row = mysql_fetch_row($result)){
                         echo '<li>';
                         $dniAdmin=$row[0];
-                        echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='modificarPerfilUsuario.php?id=$row[0]'><i class='material-icons right'>mode_edit</i></a></div>";
+                        echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='modificarUsuarioSA.php?dniUs=$row[0]'><i class='material-icons right'>mode_edit</i></a></div>";
                         echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
                         echo '</li>';
                     }
@@ -76,15 +82,13 @@
 
             <?php
              
-                    $link=mysql_connect("localhost", "root", "");
-                    mysql_select_db("incidencias", $link);
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=2", $link);
+                    $result2 = mysql_query("SELECT * FROM usuario WHERE tipo=1", $link);
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
-                    while ($row = mysql_fetch_row($result)){
+                    while ($row2 = mysql_fetch_row($result2)){
                         echo '<li>';
-                        echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a onclick='prueba()'><i class='material-icons right'>mode_edit</i></a></div>";
-                        echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
+                        echo "<div class='collapsible-header'><img src='$row2[7]' width='20px' height='20px'></img> $row2[5] $row2[6]<a href='eliminarAdmin.php?id=$row2[0]'><i class='material-icons right'>delete</i></a><a href='modificarUsuarioSA.php?dniUs=$row2[0]'><i class='material-icons right'>mode_edit</i></a></div>";
+                        echo "<div class='collapsible-body prueba'><span>DNI: $row2[0]</span><br><span>Correo: $row2[4]</span><br><span>Telefono: $row2[8]</span><br><span>Direccion: $row2[9]</span> <br><span>Fecha de nacimiento: $row2[10]</span><br><br></div>";
                         echo '</li>';
                     }
                     echo '</ul>';
@@ -95,15 +99,14 @@
 
             <h3>Ciudadanos</h3>
             <?php
-                    $link=mysql_connect("localhost", "root", "");
-                    mysql_select_db("incidencias", $link);
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=3", $link);
+
+                    $result3 = mysql_query("SELECT * FROM usuario WHERE tipo=3", $link);
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
-                    while ($row = mysql_fetch_row($result)){
+                    while ($row3= mysql_fetch_row($result3)){
                         echo '<li>';
-                        echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='#modal2'><i class='material-icons right'>mode_edit</i></a></div>";
-                        echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
+                        echo "<div class='collapsible-header'><img src='$row3[7]' width='20px' height='20px'></img> $row3[5] $row3[6]<a href='eliminarAdmin.php?id=$row3[0]'><i class='material-icons right'>delete</i></a><a href='modificarUsuarioSA.php?dniUs=$row3[0]'><i class='material-icons right'>mode_edit</i></a></div>";
+                        echo "<div class='collapsible-body prueba'><span>DNI: $row3[0]</span><br><span>Correo: $row3[4]</span><br><span>Telefono: $row3[8]</span><br><span>Direccion: $row3[9]</span> <br><span>Fecha de nacimiento: $row3[10]</span><br><br></div>";
                         echo '</li>';
                     }
                     echo '</ul>';
