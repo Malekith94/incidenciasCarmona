@@ -18,7 +18,7 @@ ini_set('display_errors', 0);
     $resProf = mysql_query($queryProf);
 
     //Query combo 2
-    $queryEmple = "SELECT * FROM usuario WHERE idProfesion=$prof and tipo=1";
+    $queryEmple = "SELECT * FROM usuario WHERE idProfesion=$prof ";
     $resEmple = mysql_query($queryEmple);
 
 ?>
@@ -61,12 +61,12 @@ ini_set('display_errors', 0);
                         <ul class="left hide-on-med-and-down cabecera">
 
                             <?php
-                        $link = mysql_connect("localhost", "root");
-                        mysql_select_db("incidencias", $link);
-                        $badge= "select count(*) as suma from incidencia where estado=0";
-                        $resultado =mysql_query($badge, $link);
-                        $row = mysql_fetch_row($resultado);
-                        ?>
+                                $link = mysql_connect("localhost", "root");
+                                mysql_select_db("incidencias", $link);
+                                $badge= "select count(*) as suma from incidencia where estado=0";
+                                $resultado =mysql_query($badge, $link);
+                                $row = mysql_fetch_row($resultado);
+                            ?>
 
                                 <li><a href="../indexAdmin.php">Planning <span class="new badge red"> <?php echo $row[0] ?> </span></a></li>
                                 <li><a href="../usuarios.php">Usuarios</a></li>

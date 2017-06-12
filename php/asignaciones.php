@@ -100,7 +100,7 @@
                             echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><img src='../$row2[3]' width='35px' height='35px'></img><td id='can'>
                             <INPUT name='cantHerra' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><a href='asignarHerramienta.php?dniEmp=$row[0]&idHerra=$row2[0]&cantH=$cantH' onclick='myFunction()'><i class='material-icons'>thumb_up</i></a></td></tr> \n "; */
                                                             
-                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><img src='../$row2[3]' width='35px' height='35px'></img><td id='can'><form action='asignarHerramienta.php' method='post'>
+                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><img src='../$row2[3]' width='35px' height='35px'></img><td id='can'><form action='asignarHerramienta.php?dniEmp=$row[0]&idHerra=$row2[0]' method='post'>
                             <INPUT name='cantidadH' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'><input type=submit value=enviar></form></td></tr> \n "; 
                         
                             } 

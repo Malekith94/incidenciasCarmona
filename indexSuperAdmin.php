@@ -26,7 +26,7 @@
                 <ul class="hide-on-med-and-down cabecera">
 
                     
-                    <li><a href="usuarios.php">Usuarios</a></li>
+                    <li><a href="indexSuperAdmin.php">Usuarios</a></li>
                     
 
 
@@ -42,7 +42,7 @@
     </div>
 
     <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
-        <li><a href="usuarios.php">Usuarios</a></li>
+        <li><a href="indexSuperAdmin.php">Usuarios</a></li>
         <li><a href="miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
         <li><a href="login.html"><i class="material-icons">power_settings_new</i></a></li>
     </ul>
@@ -56,7 +56,7 @@
                     //include('conexion.php');
                     $link=mysql_connect("localhost", "root", "");
                     mysql_select_db("incidencias", $link);
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=0", $link);
+                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=1", $link);
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
                     while ($row = mysql_fetch_row($result)){
@@ -78,7 +78,7 @@
              
                     $link=mysql_connect("localhost", "root", "");
                     mysql_select_db("incidencias", $link);
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=1", $link);
+                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=2", $link);
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
                     while ($row = mysql_fetch_row($result)){
@@ -97,7 +97,7 @@
             <?php
                     $link=mysql_connect("localhost", "root", "");
                     mysql_select_db("incidencias", $link);
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=2", $link);
+                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=3", $link);
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
                     while ($row = mysql_fetch_row($result)){

@@ -80,7 +80,7 @@
                                     $row = mysql_fetch_row($result);
                             ?>
                                 <!--Formulario-->
-                                <form class="col s12" method="post" action="php/modificarMiPerfil.php" enctype="multipart/form-data">
+                                <form class="col s12" method="post" action="modificarUsuario.php" enctype="multipart/form-data">
                                     <div class="row espacio">
                                         <!--Dni-->
                                         <div class="input-field col s6">
@@ -98,7 +98,7 @@
                                     <div class="row ">
                                         <!--Correo-->
                                         <div class="input-field col s6">
-                                            <input id="correo" name="correo" type="text" class="validate" value="<?php echo $row[4]; ?>">
+                                            <input id="correo" name="email" type="text" class="validate" value="<?php echo $row[4]; ?>">
                                             <label for="correo">Correo</label>
                                         </div>
                                         <!--Contraseña-->
