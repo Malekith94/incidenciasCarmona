@@ -37,6 +37,8 @@
                     <ul class="hide-on-med-and-down cabecera">
                         <li><a href="../indexAdmin.php">Planning</a></li>
                         <li><a href="../usuarios.php">Usuarios</a></li>
+                        <li><a href="prestamoAdmin.php">En prestamo</a></li>
+                        <li><a href="../historial.php">Historial</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Empresa<i class="material-icons right">arrow_drop_down</i></a>
                         </li>
@@ -54,6 +56,8 @@
         <ul class="side-nav yellow accent-2 fondosidenav" id="mobile-demo">
             <li><a href="../indexAdmin.php">Planning</a></li>
             <li><a href="../usuarios.php">Usuarios</a></li>
+            <li><a href="prestamoAdmin.php">En prestamo</a></li>
+             <li><a href="../historial.php">Historial</a></li>
             <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Empresa<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="../miPerfil.php"><i class="material-icons">perm_identity</i></a></li>
             <li><a href="../login.html"><i class="material-icons">power_settings_new</i></a></li>
