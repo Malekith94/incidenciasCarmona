@@ -87,15 +87,19 @@
                             echo '<th>Cantidad</th>';
                             echo '<th>Foto</th>';
                             echo '<th>Cantidad a coger</th>';
-                            echo '<th>Coger</th>';
+                            //echo '<th>Coger</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row2 = mysql_fetch_row($result2)){
-                            echo "<script text='javascript'> function myFunction() {var person = prompt('Introduzca una cantidad', '0'); if (person != null) {document.getElementById('can').innerHTML =  person ;}} </script>";
+                            /*echo "<script text='javascript'> function myFunction() {var person = prompt('Introduzca una cantidad', '0'); if (person != null) {document.getElementById('can').innerHTML =  person ;}location.href='?cantH='+person} </script>";
                             $variablePHP = "<script> document.write(person) </script>";
+                            $cantH=(int)$_GET["cantH"];
                             echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><img src='../$row2[3]' width='35px' height='35px'></img><td id='can'>
-                            <INPUT name='cantHerra' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><a href='asignarHerramienta.php?dniEmp=$row[0]&idHerra=$row2[0]&canti=$variablePHP' onclick='myFunction()'><i class='material-icons'>thumb_up</i></a></td></tr> \n "; 
+                            <INPUT name='cantHerra' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><a href='asignarHerramienta.php?dniEmp=$row[0]&idHerra=$row2[0]&cantH=$cantH' onclick='myFunction()'><i class='material-icons'>thumb_up</i></a></td></tr> \n "; */
+                                                            
+                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><img src='../$row2[3]' width='35px' height='35px'></img><td id='can'><form action='asignarHerramienta.php' method='post'>
+                            <INPUT name='cantidadH' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'><input type=submit value=enviar></form></td></tr> \n "; 
                         
                             } 
                             echo "</table> \n"; 
