@@ -12,7 +12,8 @@
             $result = mysql_query("SELECT * FROM usuario where correo = '$correo'", $link);
             $row = mysql_fetch_row($result);
             $result2 = mysql_query("SELECT * FROM inventario", $link); 
-            $cantidadHerramienta=$_SESSION['cantidadHerra']=$_REQUEST['cantHerra'];
+            $result3 = mysql_query("SELECT * FROM vehiculo", $link);        
+            
         ?>    
 
 <head>
@@ -89,7 +90,7 @@
                             echo '<th>Cantidad</th>';
                             echo '<th>Foto</th>';
                             echo '<th>Cantidad a coger</th>';
-                            //echo '<th>Coger</th>';
+                            echo '<th>Coger</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
@@ -101,7 +102,7 @@
                             <INPUT name='cantHerra' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><a href='asignarHerramienta.php?dniEmp=$row[0]&idHerra=$row2[0]&cantH=$cantH' onclick='myFunction()'><i class='material-icons'>thumb_up</i></a></td></tr> \n "; */
                                                             
                             echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td><img src='../$row2[3]' width='35px' height='35px'></img><td id='can'><form action='asignarHerramienta.php?dniEmp=$row[0]&idHerra=$row2[0]' method='post'>
-                            <INPUT name='cantidadH' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'><input type=submit value=enviar></form></td></tr> \n "; 
+                            <INPUT name='cantidadH' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><button class='waves-effect waves-light btn' type='submit' value=enviar><i class='material-icons'>thumb_up</i></button></form></td></tr> \n "; 
                         
                             } 
                             echo "</table> \n"; 
@@ -130,13 +131,13 @@
                             echo '<th>Modelo</th>';
                             echo '<th>Cantidad</th>';
                             echo '<th>Foto</th>';
-                            echo '<th>Cantidad</th>';
+                            echo '<th>Cantidad a coger</th>';
                             echo '<th>Coger</th>';
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row = mysql_fetch_row($result)){ 
-                            echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='../$row[5]' width='35px' height='35px'></img></td><td><INPUT name='cantVehi' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><a href='asignarHerramienta.php?dniEmp=$row[0]'><i class='material-icons'>thumb_up</i></a></td></tr> \n "; 
+                            while ($row3 = mysql_fetch_row($result3)){ 
+                            echo "<tr><td>$row3[0]</td><td>$row3[1]</td><td>$row3[2]</td><td>$row3[3]</td><td>$row3[4]</td><td><img src='../$row3[5]' width='35px' height='35px'></img></td><td><form action='asignarVehiculo.php?dniEmp=$row[0]&mat=$row3[0]' method='post'><INPUT name='cantVehi' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><button class='waves-effect waves-light btn' type='submit' value=enviar><i class='material-icons center'>thumb_up</i></button></form></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             ?> 

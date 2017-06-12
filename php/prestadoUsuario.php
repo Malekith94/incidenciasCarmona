@@ -76,7 +76,7 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row2 = mysql_fetch_row($result2)){ 
-                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td><td><a href='eliminarHerramientaPrestada.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
+                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td><td><a href='eliminarHerramientaPrestada.php?id=$row[0]&idHerra=$row2[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             
@@ -109,7 +109,7 @@
                             echo '</thead>';
                             echo '<tbody>';
                             while ($row2 = mysql_fetch_row($result2)){ 
-                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td><td><a href='eliminarVehiculoPrestado.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
+                            echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td><td><a href='eliminarVehiculoPrestado.php?id=$row[0]&mat=$row2[1]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
                             

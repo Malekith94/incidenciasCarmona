@@ -24,7 +24,7 @@ $updateInvNeg = "UPDATE inventario set cantidad=cantidad-$cantidad where idHerra
 $selectCantidad = "SELECT * FROM inventario WHERE idHerramienta = $idHerramienta";
 
 
-if(mysql_fetch_row(mysql_query($selectCantidad))[2]>$cantidad){
+if(mysql_fetch_row(mysql_query($selectCantidad))[2]>=$cantidad){
     
     if($o==0){
 

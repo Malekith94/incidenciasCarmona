@@ -91,7 +91,7 @@ CREATE TABLE plan(
     CONSTRAINT FOREIGN KEY (idIncidencia) REFERENCES incidencia(idIncidencia)
 );
 
-CREATE TABLE usuarioInventario(
+CREATE TABLE usuarioinventario(
     idHerramienta int(11),
     dni varchar(9),
     fecha date NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE usuarioInventario(
     CONSTRAINT FOREIGN KEY (dni) REFERENCES usuario(dni)
 );
 
-CREATE TABLE usuarioVehiculo(
+CREATE TABLE usuariovehiculo(
     dni varchar(9),
     matricula varchar(7),
     fecha date NOT NULL,
