@@ -1,7 +1,6 @@
 <?php
 
-$link = mysql_connect("localhost", "root");
-mysql_select_db("incidencias", $link);
+$link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
 
 $dni = $_REQUEST['dniEmp'];
 $matricula = $_REQUEST['mat'];
@@ -11,7 +10,7 @@ $fecha = date("Y-m-d");
 $cantComp = $cantidad;
 
 $select ="SELECT count(*) from usuariovehiculo where matricula = '$matricula' and dni='$dni'";
-$o=mysql_fetch_row(mysql_query($select))[0];
+$o=mysqli_fetch_row(mysqli_query($select))[0];
 
 //echo $o;
 //echo $select;
@@ -22,16 +21,16 @@ $updateInv = "UPDATE usuariovehiculo set cantidad=cantidad+$cantidad where matri
 $updateInvNeg = "UPDATE vehiculo set cantidad=cantidad-$cantidad where matricula='$matricula'";
 
 $selectCantidad = "SELECT * FROM vehiculo WHERE matricula = '$matricula'";
-$r = mysql_fetch_row(mysql_query($selectCantidad))[4];
+$r = mysqli_fetch_row(mysqli_query($selectCantidad))[4];
 echo $r;
 
 
-if(mysql_fetch_row(mysql_query($selectCantidad))[4]>=$cantidad){
+if(mysqli_fetch_row(mysqli_query($selectCantidad))[4]>=$cantidad){
     
     if($o==0){
 
-        if (mysql_query($insertar)) {
-                if (mysql_query($updateInvNeg)) {
+        if (mysqli_query($insertar)) {
+                if (mysqli_query($updateInvNeg)) {
 
                     echo '<html><body><script language="javascript"> alert("Se ha asignado el vehiculo correctamente"); window.location="asignaciones.php"; </script></body></html>';
 
@@ -44,8 +43,8 @@ if(mysql_fetch_row(mysql_query($selectCantidad))[4]>=$cantidad){
     
     if($o>0){
 
-        if (mysql_query($updateInv)) {
-            if (mysql_query($updateInvNeg)) {
+        if (mysqli_query($updateInv)) {
+            if (mysqli_query($updateInvNeg)) {
                 echo '<html><body><script language="javascript"> alert("Se ha actualizado el vehiculo correctamente"); window.location="asignaciones.php"; </script></body></html>';
 
                 //echo $select;

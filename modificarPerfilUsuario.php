@@ -74,10 +74,9 @@
                             <!--Rellenar formulario con php-->
                             <?php
                                     $dniAdmin = $_REQUEST['id']; 
-                                    $link = mysql_connect("localhost", "root");
-                                    mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM usuario where dni = '$dniAdmin'", $link);
-                                    $row = mysql_fetch_row($result);
+                                    $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                                    $result = mysqli_query($link, "SELECT * FROM usuario where dni = '$dniAdmin'");
+                                    $row = mysqli_fetch_row($result);
                             ?>
                                 <!--Formulario-->
                                 <form class="col s12" method="post" action="modificarUsuario.php" enctype="multipart/form-data">

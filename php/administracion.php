@@ -75,9 +75,8 @@
             
                 <div class="white contenedorTabla">                                    
                       <?php 
-                            $link = mysql_connect("localhost", "root"); 
-                            mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT * FROM inventario", $link); 
+                            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias"); 
+                            $result = mysqli_query($link, "SELECT * FROM inventario"); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -90,7 +89,7 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row = mysql_fetch_row($result)){ 
+                            while ($row = mysqli_fetch_row($result)){ 
                             echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td><img src='../$row[3]' width='35px' height='35px'></img> <td><a href='modificarHerramienta.php?idHerra=$row[0]'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
                             <td><a href='eliminarHerramienta.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td>
                             </tr> \n "; 
@@ -110,9 +109,8 @@
             
                 <div class="white contenedorTabla">                                    
                       <?php 
-                            $link = mysql_connect("localhost", "root"); 
-                            mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT * FROM vehiculo", $link); 
+                            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias"); 
+                            $result = mysqli_query($link, "SELECT * FROM vehiculo"); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -127,7 +125,7 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row = mysql_fetch_row($result)){ 
+                            while ($row = mysqli_fetch_row($result)){ 
                             echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td><img src='../$row[5]' width='35px' height='35px'></img>
                             </img> <td><a href='modificarVehiculo.php?idVehi=$row[0]'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
                             <td><a href='eliminarVehiculo.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td>
@@ -148,9 +146,8 @@
             
                 <div class="white contenedorTabla">                                    
                       <?php 
-                            $link = mysql_connect("localhost", "root"); 
-                            mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT * FROM profesion", $link); 
+                            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias"); 
+                            $result = mysqli_query($link, "SELECT * FROM profesion"); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -161,7 +158,7 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row = mysql_fetch_row($result)){ 
+                            while ($row = mysqli_fetch_row($result)){ 
                             echo "<tr><td>$row[0]</td><td>$row[1]</td> </img> <td><a href='modificarProfesion.php?idProf=$row[0]'><img src='../fotos/modificar.png' width='30px' height='30px'></a></td>
                             <td><a href='eliminarProfesion.php?id=$row[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td> </tr> \n "; 
                             } 
@@ -260,14 +257,10 @@
                                 <select id="combo" name="profesiones">
                                 <option>Seleccione una profesión...</option>
                                 <?php 
-                                    $conexion=mysql_connect("localhost","root","") or
-                                    die("Problemas en la conexion");
-                                    mysql_select_db("incidencias",$conexion) or
-                                    die("Problemas en la selección de la base de datos");  
-                                    mysql_query ("SET NAMES 'utf8'");
-                                    $query=mysql_query("select idProfesion, nombre from profesion", $conexion) or
-                                    die("Problemas en el select:".mysql_error());
-                                    while($row = mysql_fetch_array($query))
+                                    $conexion=mysqli_connect("79.148.236.236","dam42","0260flm4448glj", "dam42_incidencias"); 
+                                    mysqli_query ("SET NAMES 'utf8'");
+                                    $query=mysqli_query($conexion, "select idProfesion, nombre from profesion");
+                                    while($row = mysqli_fetch_array($query))
                                     {
                                     echo'<OPTION VALUE="'.$row['idProfesion'].'">'.$row['nombre'].'</OPTION>';
                                         echo $row['idProfesion'];

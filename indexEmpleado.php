@@ -28,12 +28,11 @@
                         <?php
                         session_start();
                         $correo = $_SESSION['sesion'];
-                        $link = mysql_connect("localhost", "root");
-                        mysql_select_db("incidencias", $link);
-                        $query = mysql_query("select dni from usuario where correo='$correo'");
-                        $resultado = mysql_fetch_row($query);
-                        $query2 = mysql_query("select count(*) from incidencia where dni='$resultado[0]' and estado=1");
-                        $resultado2 = mysql_fetch_row($query2);
+                        $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                        $query = mysqli_query("select dni from usuario where correo='$correo'");
+                        $resultado = mysqli_fetch_row($query);
+                        $query2 = mysqli_query("select count(*) from incidencia where dni='$resultado[0]' and estado=1");
+                        $resultado2 = mysqli_fetch_row($query2);
                         ?>
 
                         <li><a href="indexEmpleado.php">Planning <span class="new badge blue"> <?php echo $resultado2[0] ?> </span></a></li>
@@ -71,15 +70,14 @@
             <?php
                 //session_start();
                 //$correo = $_SESSION['sesion'];
-                $link = mysql_connect("localhost", "root");
-                mysql_select_db("incidencias", $link);
-                $result = mysql_query("select dni from usuario where correo='$correo'");
-                $row = mysql_fetch_row($result);
-                $result2 = mysql_query("select * from incidencia where dni='$row[0]' and estado=1");
+                $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                $result = mysqli_query("select dni from usuario where correo='$correo'");
+                $row = mysqli_fetch_row($result);
+                $result2 = mysqli_query("select * from incidencia where dni='$row[0]' and estado=1");
         
               echo '<ul class="collection">';
                 
-              while ($row2 = mysql_fetch_row($result2)){
+              while ($row2 = mysqli_fetch_row($result2)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row2[5]' alt='' class='circle'>";
                 echo "<span class='title'><b>Incidencia nº:</b> $row2[0]</span><br>";

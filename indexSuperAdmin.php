@@ -3,8 +3,7 @@
 <?php
             /*error_reporting(0);
             ini_set('display_errors', 0);*/
-            $link = mysql_connect("localhost", "root");
-            mysql_select_db("incidencias", $link);
+            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
        
             
         ?>
@@ -62,10 +61,10 @@
             <?php   
                     //include('conexion.php');
 
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=0", $link);
+                    $result = mysqli_query($link, "SELECT * FROM usuario WHERE tipo=0");
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
-                    while ($row = mysql_fetch_row($result)){
+                    while ($row = mysqli_fetch_row($result)){
                         echo '<li>';
                         $dniAdmin=$row[0];
                         echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='modificarUsuarioSA.php?dniUs=$row[0]'><i class='material-icons right'>mode_edit</i></a></div>";
@@ -82,10 +81,10 @@
 
             <?php
              
-                    $result2 = mysql_query("SELECT * FROM usuario WHERE tipo=1", $link);
+                    $result2 = mysqli_query($link, "SELECT * FROM usuario WHERE tipo=1");
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
-                    while ($row2 = mysql_fetch_row($result2)){
+                    while ($row2 = mysqli_fetch_row($result2)){
                         echo '<li>';
                         echo "<div class='collapsible-header'><img src='$row2[7]' width='20px' height='20px'></img> $row2[5] $row2[6]<a href='eliminarAdmin.php?id=$row2[0]'><i class='material-icons right'>delete</i></a><a href='modificarUsuarioSA.php?dniUs=$row2[0]'><i class='material-icons right'>mode_edit</i></a></div>";
                         echo "<div class='collapsible-body prueba'><span>DNI: $row2[0]</span><br><span>Correo: $row2[4]</span><br><span>Telefono: $row2[8]</span><br><span>Direccion: $row2[9]</span> <br><span>Fecha de nacimiento: $row2[10]</span><br><br></div>";
@@ -100,12 +99,12 @@
             <h3>Ciudadanos</h3>
             <?php
 
-                    $result3 = mysql_query("SELECT * FROM usuario WHERE tipo=3", $link);
+                    $result3 = mysqli_query($link, "SELECT * FROM usuario WHERE tipo=3");
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
-                    while ($row3= mysql_fetch_row($result3)){
+                    while ($row3= mysqli_fetch_row($result3)){
                         echo '<li>';
-                        echo "<div class='collapsible-header'><img src='$row3[7]' width='20px' height='20px'></img> $row3[5] $row3[6]<a href='eliminarAdmin.php?id=$row3[0]'><i class='material-icons right'>delete</i></a><a href='modificarUsuarioSA.php?dniUs=$row3[0]'><i class='material-icons right'>mode_edit</i></a></div>";
+                        echo "<div class='collapsible-header'><img src='$row3[7]' width='20px' height='20px'></img> $row3[5] $row3[6]<a href='borrarUsuarioSA.php?id=$row3[0]'><i class='material-icons right'>delete</i></a><a href='modificarUsuarioSA.php?dniUs=$row3[0]'><i class='material-icons right'>mode_edit</i></a></div>";
                         echo "<div class='collapsible-body prueba'><span>DNI: $row3[0]</span><br><span>Correo: $row3[4]</span><br><span>Telefono: $row3[8]</span><br><span>Direccion: $row3[9]</span> <br><span>Fecha de nacimiento: $row3[10]</span><br><br></div>";
                         echo '</li>';
                     }
@@ -127,7 +126,7 @@
             </div>
             <!--Formulario registrar usuario-->
             <div id="nuevoUsuario" class="row">
-                <form class="col s12" action="insertarUsuario.php" method="POST" enctype="multipart/form-data">
+                <form class="col s12" action="insertarUsuarioSA.php" method="POST" enctype="multipart/form-data">
 
                     <div class="row">
 
@@ -152,14 +151,10 @@
                             <select id="combo" name="profesiones">
                                 <option>Seleccione una profesión...</option>
 						      	<?php 
-                                    $conexion=mysql_connect("localhost","root","") or
-                                    die("Problemas en la conexion");
-                                    mysql_select_db("incidencias",$conexion) or
-                                    die("Problemas en la selección de la base de datos");  
-                                    mysql_query ("SET NAMES 'utf8'");
-                                    $query=mysql_query("select idProfesion, nombre from profesion", $conexion) or
-                                    die("Problemas en el select:".mysql_error());
-                                    while($row = mysql_fetch_array($query))
+                                    $conexion=mysqli_connect("79.148.236.236","dam42","0260flm4448glj", "dam42_incidencias");
+                                    mysqli_query ("SET NAMES 'utf8'");
+                                    $query=mysqli_query($conexion, "select idProfesion, nombre from profesion");
+                                    while($row = mysqli_fetch_array($query))
                                     {
                                     echo'<OPTION VALUE="'.$row['idProfesion'].'">'.$row['nombre'].'</OPTION>';
                                         echo $row['idProfesion'];
@@ -269,12 +264,11 @@
                         <?php       
                                     session_start();
                                     $dniAd = $_SESSION['dniAd'];
-                                    $link=mysql_connect("localhost", "root");
-                                    mysql_select_db("incidencias", $link);
-                                    $resultUsu = mysql_query("SELECT * FROM usuario where dni = '$dniAd'", $link);
-                                    $row = mysql_fetch_row($resultUsu);
-                                    $resultProf = mysql_query("SELECT * from profesion where idProfesion=$row[1]");
-                                    $row2 = mysql_fetch_row($resultProf);
+                                    $link=mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                                    $resultUsu = mysqli_query($link, "SELECT * FROM usuario where dni = '$dniAd'");
+                                    $row = mysqli_fetch_row($resultUsu);
+                                    $resultProf = mysqli_query("SELECT * from profesion where idProfesion=$row[1]");
+                                    $row2 = mysqli_fetch_row($resultProf);
                             ?>
 
 

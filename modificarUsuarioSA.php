@@ -53,10 +53,9 @@
                             <!--Rellenar formulario con php-->
                             <?php
                                     $dniUs = $_REQUEST['dniUs'];
-                                    $link = mysql_connect("localhost", "root");
-                                    mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM usuario where dni = '$dniUs'", $link);
-                                    $row = mysql_fetch_row($result);
+                                    $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                                    $result = mysqli_query($link, "SELECT * FROM usuario where dni = '$dniUs'");
+                                    $row = mysqli_fetch_row($result);
                             ?>    
                                 <!--Formulario-->
                                 <form class="col s12" method="post" action="modificarMiPerfilSA.php"  enctype="multipart/form-data">

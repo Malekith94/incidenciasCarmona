@@ -77,9 +77,8 @@
             
                 <div class="white contenedorTabla">                                    
                       <?php 
-                            $link = mysql_connect("localhost", "root");
-                            mysql_select_db("incidencias", $link);
-                            $result2 = mysql_query("SELECT * FROM usuarioinventario", $link);
+                            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                            $result2 = mysqli_query($link, "SELECT * FROM usuarioinventario");
                             
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
@@ -92,11 +91,11 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row = mysql_fetch_row($result2)){
-                                $result3 = mysql_query("SELECT * FROM usuario WHERE dni='$row[1]'", $link);
-                                $result4 = mysql_query("SELECT * FROM inventario WHERE idHerramienta=$row[0]", $link);
-                                while ($row2 = mysql_fetch_row($result3)){
-                                    while ($row3 = mysql_fetch_row($result4)){
+                            while ($row = mysqli_fetch_row($result2)){
+                                $result3 = mysqli_query($link, "SELECT * FROM usuario WHERE dni='$row[1]'");
+                                $result4 = mysqli_query($link, "SELECT * FROM inventario WHERE idHerramienta=$row[0]");
+                                while ($row2 = mysqli_fetch_row($result3)){
+                                    while ($row3 = mysqli_fetch_row($result4)){
 
                                         echo "<tr><td>$row[1]</td><td>$row2[5] $row2[6]</td><td>$row[0]</td><td>$row3[1]</td><td>$row[2]</td></tr> \n ";
                                     }
@@ -118,9 +117,8 @@
             
                 <div class="white contenedorTabla">                                    
                    <?php 
-                            $link = mysql_connect("localhost", "root"); 
-                            mysql_select_db("incidencias", $link);
-                            $result2 = mysql_query("SELECT * FROM usuarioVehiculo", $link);
+                            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias"); 
+                            $result2 = mysqli_query($link, "SELECT * FROM usuarioVehiculo");
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -131,9 +129,9 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row = mysql_fetch_row($result2)){
-                                $result3 = mysql_query("SELECT * FROM usuario WHERE dni='$row[1]'", $link);
-                                while ($row3 = mysql_fetch_row($result3)){
+                            while ($row = mysqli_fetch_row($result2)){
+                                $result3 = mysqli_query($link, "SELECT * FROM usuario WHERE dni='$row[1]'");
+                                while ($row3 = mysqli_fetch_row($result3)){
                                     
                                     echo "<tr><td>$row[0]</td><td>$row3[5] $row3[6]</td><td>$row[1]</td><td>$row[2]</td></tr> \n "; 
                                 }

@@ -60,11 +60,10 @@
                       <?php 
                             session_start();
                             $correo = $_SESSION['sesion'];
-                            $link = mysql_connect("localhost", "root");
-                            mysql_select_db("incidencias", $link);
-                            $result = mysql_query("SELECT * FROM usuario where correo = '$correo'", $link);
-                            $row = mysql_fetch_row($result);
-                            $result2 = mysql_query("SELECT * FROM usuarioinventario where dni = '$row[0]'", $link);
+                            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                            $result = mysqli_query($link, "SELECT * FROM usuario where correo = '$correo'");
+                            $row = mysqli_fetch_row($result);
+                            $result2 = mysqli_query($link, "SELECT * FROM usuarioinventario where dni = '$row[0]'");
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -75,7 +74,7 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row2 = mysql_fetch_row($result2)){ 
+                            while ($row2 = mysqli_fetch_row($result2)){ 
                             echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td><td><a href='eliminarHerramientaPrestada.php?id=$row[0]&idHerra=$row2[0]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 
@@ -93,11 +92,10 @@
             
                 <div class="white contenedorTabla">                                    
                    <?php 
-                            $link = mysql_connect("localhost", "root"); 
-                            mysql_select_db("incidencias", $link);
-                            $result = mysql_query("SELECT * FROM usuario where correo = '$correo'", $link);
-                            $row = mysql_fetch_row($result);
-                            $result2 = mysql_query("SELECT * FROM usuarioVehiculo where dni='$row[0]'", $link);
+                            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias"); 
+                            $result = mysqli_query($link, "SELECT * FROM usuario where correo = '$correo'");
+                            $row = mysqli_fetch_row($result);
+                            $result2 = mysqli_query($link, "SELECT * FROM usuarioVehiculo where dni='$row[0]'");
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -108,7 +106,7 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row2 = mysql_fetch_row($result2)){ 
+                            while ($row2 = mysqli_fetch_row($result2)){ 
                             echo "<tr><td>$row2[0]</td><td>$row2[1]</td><td>$row2[2]</td><td>$row2[3]</td><td><a href='eliminarVehiculoPrestado.php?id=$row[0]&mat=$row2[1]'><img src='../fotos/eliminar.png' width='30px' height='30px'></a></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 

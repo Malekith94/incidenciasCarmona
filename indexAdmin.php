@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
-    $link = mysql_connect("localhost", "root");
-    mysql_select_db("incidencias", $link);
+    $link = mysqli_connect("localhost", "root", "0260flm4448glj", "dam42_incidencias");
 ?>
 <html>
 
@@ -42,11 +41,10 @@
                     <ul class="left hide-on-med-and-down cabecera">
 
                         <?php
-                        $link = mysql_connect("localhost", "root");
-                        mysql_select_db("incidencias", $link);
+                        $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
                         $badge= "select count(*) as suma from incidencia where estado=0";
-                        $resultado =mysql_query($badge, $link);
-                        $row = mysql_fetch_row($resultado);
+                        $resultado =mysqli_query($link, $badge);
+                        $row = mysqli_fetch_row($resultado);
                         ?>
 
                             <li><a href="indexAdmin.php">Planning <span class="new badge red"> <?php echo $row[0] ?> </span></a></li>
@@ -92,11 +90,11 @@
             <?php
             //$link = mysql_connect("localhost", "root");
             //mysql_select_db("incidencias", $link);
-            $result = mysql_query("SELECT * FROM incidencia where estado=0", $link);
+            $result = mysqli_query($link, "SELECT * FROM incidencia where estado=0");
             
             echo '<ul class="collection">';
             
-            while ($row = mysql_fetch_row($result)){
+            while ($row = mysqli_fetch_row($result)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row[5]' alt='' class='circle'>";
                 echo "<span class='title'><b>Incidencia nº:</b> $row[0]</span><br>";

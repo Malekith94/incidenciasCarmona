@@ -77,13 +77,12 @@
                 </div>
 
                 <?php
-            $link = mysql_connect("localhost", "root");
-            mysql_select_db("incidencias", $link);
-            $result = mysql_query("SELECT * FROM historial", $link);
+            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+            $result = mysqli_query($link, "SELECT * FROM historial");
             
             echo '<ul class="collection">';
             
-            while ($row = mysql_fetch_row($result)){
+            while ($row = mysqli_fetch_row($result)){
                 echo '<li class="collection-item avatar">';
                 echo "<img src='$row[6]' alt='' class='circle'>";
                 echo "<span class='title'><b>Incidencia nº:</b> $row[2]</span><br>";

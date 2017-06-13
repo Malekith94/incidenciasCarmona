@@ -4,8 +4,7 @@
 error_reporting(0);
 ini_set('display_errors', 0);
 
-    $link = mysql_connect("localhost", "root");
-    mysql_select_db("incidencias", $link);
+    $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
 
     
     $incidenciaId = $_SESSION['incidenciaId2']=$_REQUEST['idIncidencia'];
@@ -15,11 +14,11 @@ ini_set('display_errors', 0);
 
     //Query combo 1
     $queryProf = "SELECT * FROM profesion";
-    $resProf = mysql_query($queryProf);
+    $resProf = mysqli_query($queryProf);
 
     //Query combo 2
     $queryEmple = "SELECT * FROM usuario WHERE idProfesion=$prof ";
-    $resEmple = mysql_query($queryEmple);
+    $resEmple = mysqli_query($queryEmple);
 
 ?>
     <html>
@@ -61,11 +60,10 @@ ini_set('display_errors', 0);
                         <ul class="left hide-on-med-and-down cabecera">
 
                             <?php
-                                $link = mysql_connect("localhost", "root");
-                                mysql_select_db("incidencias", $link);
+                                $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
                                 $badge= "select count(*) as suma from incidencia where estado=0";
-                                $resultado =mysql_query($badge, $link);
-                                $row = mysql_fetch_row($resultado);
+                                $resultado =mysqli_query($link, $badge);
+                                $row = mysqli_fetch_row($resultado);
                             ?>
 
                                 <li><a href="../indexAdmin.php">Planning <span class="new badge red"> <?php echo $row[0] ?> </span></a></li>
@@ -127,7 +125,7 @@ ini_set('display_errors', 0);
                                         <select id="comboProfesion" name="profesiones" placeholder="seleccione una profesion" onchange="this.form.submit()">
                                     <option></option>
                                         <?php 
-                                            while($row1 = mysql_fetch_array($resProf))
+                                            while($row1 = mysqli_fetch_array($resProf))
                                             {
                                             echo'<OPTION VALUE="'.$row1['idProfesion'].'">'.$row1['idProfesion'].' - '.$row1['nombre'].'</OPTION>';
                                                 //echo $row1['idProfesion'];
@@ -143,7 +141,7 @@ ini_set('display_errors', 0);
                                         <select id="comboEmpleado" name="empleados" onchange="this.form.submit()">
                                         <option>Seleccione un empleado...</option>
                                         <?php 
-                                            while($row2 = mysql_fetch_array($resEmple))
+                                            while($row2 = mysqli_fetch_array($resEmple))
                                             {
                                             echo'<OPTION VALUE="'.$row2['dni'].'">'.$row2['dni'].' - '.$row2['nombre'].' '.$row2['apellidos'].' </OPTION>';
                                                 echo $row2['dni'];

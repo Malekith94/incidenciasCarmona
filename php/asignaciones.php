@@ -7,12 +7,11 @@
 
             session_start();
             $correo = $_SESSION['sesion'];
-            $link = mysql_connect("localhost", "root");
-            mysql_select_db("incidencias", $link);
-            $result = mysql_query("SELECT * FROM usuario where correo = '$correo'", $link);
-            $row = mysql_fetch_row($result);
-            $result2 = mysql_query("SELECT * FROM inventario", $link); 
-            $result3 = mysql_query("SELECT * FROM vehiculo", $link);        
+            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+            $result = mysqli_query($link, "SELECT * FROM usuario where correo = '$correo'");
+            $row = mysqli_fetch_row($result);
+            $result2 = mysqli_query($link, "SELECT * FROM inventario"); 
+            $result3 = mysqli_query($link, "SELECT * FROM vehiculo");        
             
         ?>    
 
@@ -94,7 +93,7 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row2 = mysql_fetch_row($result2)){
+                            while ($row2 = mysqli_fetch_row($result2)){
                             /*echo "<script text='javascript'> function myFunction() {var person = prompt('Introduzca una cantidad', '0'); if (person != null) {document.getElementById('can').innerHTML =  person ;}location.href='?cantH='+person} </script>";
                             $variablePHP = "<script> document.write(person) </script>";
                             $cantH=(int)$_GET["cantH"];
@@ -119,9 +118,8 @@
             
                 <div class="white contenedorTabla">                                    
                    <?php 
-                            $link = mysql_connect("localhost", "root"); 
-                            mysql_select_db("incidencias", $link); 
-                            $result = mysql_query("SELECT * FROM vehiculo", $link); 
+                            $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias"); 
+                            $result = mysqli_query($link, "SELECT * FROM vehiculo"); 
                             echo '<table class="centered responsive-table highlight bordered">'; 
                             echo '<thead>';
                             echo '<tr>';
@@ -136,7 +134,7 @@
                             echo '</tr>';
                             echo '</thead>';
                             echo '<tbody>';
-                            while ($row3 = mysql_fetch_row($result3)){ 
+                            while ($row3 = mysqli_fetch_row($result3)){ 
                             echo "<tr><td>$row3[0]</td><td>$row3[1]</td><td>$row3[2]</td><td>$row3[3]</td><td>$row3[4]</td><td><img src='../$row3[5]' width='35px' height='35px'></img></td><td><form action='asignarVehiculo.php?dniEmp=$row[0]&mat=$row3[0]' method='post'><INPUT name='cantVehi' style='width: 40px;' TYPE='NUMBER' MIN='0' MAX='100' STEP='1' VALUE='0'></td><td><button class='waves-effect waves-light btn' type='submit' value=enviar><i class='material-icons center'>thumb_up</i></button></form></td></tr> \n "; 
                             } 
                             echo "</table> \n"; 

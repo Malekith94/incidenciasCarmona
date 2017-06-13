@@ -74,10 +74,9 @@
                             <!--Rellenar formulario con php-->
                             <?php
                                     $idHerra = $_REQUEST['idHerra'];
-                                    $link = mysql_connect("localhost", "root");
-                                    mysql_select_db("incidencias", $link);
-                                    $result = mysql_query("SELECT * FROM inventario where idHerramienta = $idHerra", $link);
-                                    $row = mysql_fetch_row($result);
+                                    $link = mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                                    $result = mysqli_query($link, "SELECT * FROM inventario where idHerramienta = $idHerra");
+                                    $row = mysqli_fetch_row($result);
                             ?>
                                 <!--Formulario-->
                                 <form class="col s12" method="post" action="../updateHerramienta.php" enctype="multipart/form-data">

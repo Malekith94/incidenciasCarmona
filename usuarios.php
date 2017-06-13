@@ -73,12 +73,11 @@
 
             <?php
              
-                    $link=mysql_connect("localhost", "root", "");
-                    mysql_select_db("incidencias", $link);
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=1", $link);
+                    $link=mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                    $result = mysqli_query($link, "SELECT * FROM usuario WHERE tipo=1");
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
-                    while ($row = mysql_fetch_row($result)){
+                    while ($row = mysqli_fetch_row($result)){
                         echo '<li>';
                         echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='modificarPerfilUsuario.php?id=$row[0]'><i class='material-icons right'>mode_edit</i></a></div>";
                         echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
@@ -93,12 +92,11 @@
 
             <h3>Ciudadanos</h3>
             <?php
-                    $link=mysql_connect("localhost", "root", "");
-                    mysql_select_db("incidencias", $link);
-                    $result = mysql_query("SELECT * FROM usuario WHERE tipo=3", $link);
+                    $link=mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                    $result = mysqli_query($link, "SELECT * FROM usuario WHERE tipo=3");
 
                     echo '<ul class="collapsible popout" data-collapsible="accordion">';
-                    while ($row = mysql_fetch_row($result)){
+                    while ($row = mysqli_fetch_row($result)){
                         echo '<li>';
                         echo "<div class='collapsible-header'><img src='$row[7]' width='20px' height='20px'></img> $row[5] $row[6]<a href='eliminarAdmin.php?id=$row[0]'><i class='material-icons right'>delete</i></a><a href='modificarPerfilUsuario.php?id=$row[0]'><i class='material-icons right'>mode_edit</i></a></div>";
                         echo "<div class='collapsible-body prueba'><span>DNI: $row[0]</span><br><span>Correo: $row[4]</span><br><span>Telefono: $row[8]</span><br><span>Direccion: $row[9]</span> <br><span>Fecha de nacimiento: $row[10]</span><br><br></div>";
@@ -147,14 +145,10 @@
                             <select id="combo" name="profesiones">
                                 <option>Seleccione una profesión...</option>
 						      	<?php 
-                                    $conexion=mysql_connect("localhost","root","") or
-                                    die("Problemas en la conexion");
-                                    mysql_select_db("incidencias",$conexion) or
-                                    die("Problemas en la selección de la base de datos");  
-                                    mysql_query ("SET NAMES 'utf8'");
-                                    $query=mysql_query("select idProfesion, nombre from profesion", $conexion) or
-                                    die("Problemas en el select:".mysql_error());
-                                    while($row = mysql_fetch_array($query))
+                                    $conexion=mysqli_connect("79.148.236.236","dam42","0260flm4448glj", "dam42_incidencias");
+                                    mysqli_query ("SET NAMES 'utf8'");
+                                    $query=mysqli_query($conexion, "select idProfesion, nombre from profesion");
+                                    while($row = mysqli_fetch_array($query))
                                     {
                                     echo'<OPTION VALUE="'.$row['idProfesion'].'">'.$row['nombre'].'</OPTION>';
                                         echo $row['idProfesion'];
@@ -264,12 +258,11 @@
                         <?php       
                                     session_start();
                                     $dniAd = $_SESSION['dniAd'];
-                                    $link=mysql_connect("localhost", "root");
-                                    mysql_select_db("incidencias", $link);
-                                    $resultUsu = mysql_query("SELECT * FROM usuario where dni = '$dniAd'", $link);
-                                    $row = mysql_fetch_row($resultUsu);
-                                    $resultProf = mysql_query("SELECT * from profesion where idProfesion=$row[1]");
-                                    $row2 = mysql_fetch_row($resultProf);
+                                    $link=mysqli_connect("79.148.236.236", "dam42", "0260flm4448glj", "dam42_incidencias");
+                                    $resultUsu = mysqli_query($link, "SELECT * FROM usuario where dni = '$dniAd'");
+                                    $row = mysqli_fetch_row($resultUsu);
+                                    $resultProf = mysqli_query("SELECT * from profesion where idProfesion=$row[1]");
+                                    $row2 = mysqli_fetch_row($resultProf);
                             ?>
 
 
